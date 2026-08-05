@@ -1,0 +1,157 @@
+/* ==========================================
+   LALAN KUMAR - PREMIUM PORTFOLIO
+   Global Styles
+========================================== */
+
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/* Reset */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#0B1120;
+    color:#ffffff;
+    overflow-x:hidden;
+    line-height:1.6;
+}
+
+/* Theme */
+:root{
+
+    --primary:#3B82F6;
+    --secondary:#06B6D4;
+    --accent:#8B5CF6;
+
+    --bg:#0B1120;
+    --card:#121A2F;
+
+    --text:#ffffff;
+    --text-light:#B7C0D1;
+
+    --radius:20px;
+
+    --shadow:
+    0 15px 40px rgba(0,0,0,.35);
+
+}
+
+/* Links */
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+/* Images */
+
+img{
+    width:100%;
+    display:block;
+}
+
+/* Container */
+
+.container{
+    width:min(1200px,92%);
+    margin:auto;
+}
+
+/* Section */
+
+section{
+    padding:100px 0;
+}
+
+/* Buttons */
+
+.btn-primary{
+
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:14px 32px;
+
+    background:linear-gradient(
+        135deg,
+        var(--primary),
+        var(--accent)
+    );
+
+    color:#fff;
+
+    border-radius:50px;
+
+    transition:.35s;
+
+    box-shadow:var(--shadow);
+
+}
+
+.btn-primary:hover{
+
+    transform:translateY(-5px);
+
+}
+
+.btn-secondary{
+
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:14px 32px;
+
+    border:2px solid var(--primary);
+
+    border-radius:50px;
+
+    transition:.35s;
+
+}
+
+.btn-secondary:hover{
+
+    background:var(--primary);
+
+}
+
+/* Glass Card */
+
+.glass{
+
+    background:rgba(255,255,255,.05);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.10);
+
+    border-radius:20px;
+
+}
+
+/* Gradient Text */
+
+.gradient{
+
+    background:linear-gradient(
+        135deg,
+        var(--primary),
+        var(--accent)
+    );
+
+    -webkit-background-clip:text;
+
+    -webkit-text-fill-color:transparent;
+
+}
