@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<urlset
+    xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    <!-- Home -->
+
+    <url>
+
+        <loc>
+            https://lalankumar99.github.io/Lalan-Portfolio/
+        </loc>
+
+        <lastmod>2026-08-06</lastmod>
+
+        <changefreq>weekly</changefreq>
+
+        <priority>1.0</priority>
+
+    </url>
+
+    <!-- About -->
+
+    <url>
+
+        <loc>
+            https://lalankumar99.github.io/Lalan-Portfolio/#about
+        </loc>
+
+        <changefreq>monthly</changefreq>
+
+        <priority>0.9</priority>
+
+    </url>
+
+    <!-- Skills -->
+
+    <url>
+
+        <loc>
+            https://lalankumar99.github.io/Lalan-Portfolio/#skills
+        </loc>
+
+        <changefreq>monthly</changefreq>
+
+        <priority>0.9</priority>
+
+    </url>
+
+    <!-- Education -->
+
+    <url>
+
+        <loc>
+            https://lalankumar99.github.io/Lalan-Portfolio/#education
+        </loc>
+
+        <changefreq>monthly</changefreq>
+
+        <priority>0.8</priority>
+
+    </url>
+
+    <!-- Experience -->
+
+    <url>
+
+        <loc>
+            https://lalankumar99.github.io/Lalan-Portfolio/#experience
+        </loc>
+
+        <changefreq>monthly</changefreq>
+
+        <priority>0.8</priority>
+
+    </url>
+
+    <!-- Projects -->
+
+    <url>
+
+        <loc>
+            https://lalankumar99.github.io/Lalan-Portfolio/#projects
+        </loc>
+
+        <changefreq>weekly</changefreq>
+
+        <priority>0.9</priority>
+
+    </url>
+
+    <!-- Gallery -->
+
+    <url>
+
+        <loc>
+            https://lalankumar99.github.io/Lalan-Portfolio/#gallery
+        </loc>
+
+        <changefreq>weekly</changefreq>
+
+        <priority>0.8</priority>
+
+    </url>
+
+    <!-- Certificates -->
+
+    <url>
+
+        <loc>
+            https://lalankumar99.github.io/Lalan-Portfolio/#certificates
+        </loc>
+
+        <changefreq>monthly</changefreq>
+
+        <priority>0.8</priority>
+
+    </url>
+
+    <!-- Resume -->
+
+    <url>
+
+        <loc>
+            https://lalankumar99.github.io/Lalan-Portfolio/#resume
+        </loc>
+
+        <changefreq>monthly</changefreq>
+
+        <priority>0.8</priority>
+
+    </url>
+
+    <!-- Blog -->
+
+    <url>
+
+        <loc>
+            https://lalankumar99.github.io/Lalan-Portfolio/#blog
+        </loc>
+
+        <changefreq>weekly</changefreq>
+
+        <priority>0.8</priority>
+
+    </url>
+
+    <!-- Dashboard -->
+
+    <url>
+
+        <loc>
+            https://lalankumar99.github.io/Lalan-Portfolio/#dashboard
+        </loc>
+
+        <changefreq>monthly</changefreq>
+
+        <priority>0.7</priority>
+
+    </url>
+
+    <!-- Contact -->
+
+    <url>
+
+        <loc>
+            https://lalankumar99.github.io/Lalan-Portfolio/#contact
+        </loc>
+
+        <changefreq>monthly</changefreq>
+
+        <priority>0.8</priority>
+
+    </url>
+
+</urlset>
