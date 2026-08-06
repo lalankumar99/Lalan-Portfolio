@@ -1,0 +1,51 @@
+# ==========================================
+# Lalan Kumar - Premium Portfolio
+# .gitignore
+# ==========================================
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Logs
+*.log
+logs/
+
+# Environment Files
+.env
+.env.local
+.env.production
+
+# Node Modules
+node_modules/
+
+# Package Manager
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# IDE
+.vscode/
+.idea/
+
+# Temporary Files
+*.tmp
+*.temp
+
+# Cache
+.cache/
+dist/
+build/
+
+# Vercel
+.vercel/
+
+# Netlify
+.netlify/
+
+# System Files
+*.swp
+*.swo
