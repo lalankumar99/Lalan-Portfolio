@@ -1,6 +1,11 @@
 // =============================================
-// Premium Portfolio
-// Component Loader
+// LALAN KUMAR - PREMIUM PORTFOLIO
+// Component Loader v2.0
+// Part 1
+// =============================================
+
+// =============================================
+// COMPONENT PATHS
 // =============================================
 
 const components = {
@@ -21,9 +26,9 @@ const components = {
 
     projects: "components/projects.html",
 
-    certificates: "components/certificates.html",
-
     gallery: "components/gallery.html",
+
+    certificates: "components/certificates.html",
 
     resume: "components/resume.html",
 
@@ -37,61 +42,114 @@ const components = {
 
 };
 
-
-// Load One Component
+// =============================================
+// LOAD SINGLE COMPONENT
+// =============================================
 
 async function loadComponent(id, file) {
+
+    const element = document.getElementById(id);
+
+    if (!element) {
+
+        console.warn(`Missing Element : ${id}`);
+
+        return;
+
+    }
 
     try {
 
         const response = await fetch(file);
 
-        if (!response.ok)
-            throw new Error(file);
+        if (!response.ok) {
 
-        const html = await response.text();
+            throw new Error(
+                `Failed to load ${file}`
+            );
 
-        document.getElementById(id).innerHTML = html;
+        }
+
+        element.innerHTML =
+            await response.text();
 
     }
 
     catch (error) {
 
-        console.error(
-            "Component Load Failed:",
-            error
-        );
+        console.error(error);
+
+        element.innerHTML = `
+            <div class="component-error">
+                Failed to load :
+                ${id}
+            </div>
+        `;
 
     }
 
 }
-
-
-// Load All Components
+// =============================================
+// LOAD ALL COMPONENTS
+// =============================================
 
 async function loadAllComponents() {
 
-    for (const id in components) {
+    const tasks = Object.entries(components).map(
 
-        await loadComponent(
-            id,
-            components[id]
-        );
+        ([id, file]) => loadComponent(id, file)
 
-    }
+    );
+
+    await Promise.all(tasks);
+
+    console.log(
+        "All Components Loaded Successfully"
+    );
 
 }
 
-
-// Start
+// =============================================
+// INITIALIZE APP
+// =============================================
 
 document.addEventListener(
 
     "DOMContentLoaded",
 
+    async () => {
+
+        await loadAllComponents();
+
+        document.body.classList.add("loaded");
+
+    }
+
+);
+
+// =============================================
+// WINDOW LOAD
+// =============================================
+
+window.addEventListener(
+
+    "load",
+
     () => {
 
-        loadAllComponents();
+        const loader = document.getElementById("loader");
+
+        if (loader) {
+
+            loader.classList.add("hide");
+
+            setTimeout(() => {
+
+                loader.remove();
+
+            }, 500);
+
+        }
 
     }
 
