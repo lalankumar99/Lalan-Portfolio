@@ -178,3 +178,84 @@ body.light-theme .section{
     color:#111827;
 
 }
+/* ==========================================
+   SCROLL PROGRESS
+========================================== */
+
+#scroll-progress{
+
+    position:fixed;
+
+    top:0;
+
+    left:0;
+
+    width:0;
+
+    height:4px;
+
+    z-index:9999;
+
+    background:linear-gradient(
+        90deg,
+        var(--primary),
+        var(--accent)
+    );
+
+}
+
+/* ==========================================
+   BACK TO TOP
+========================================== */
+
+.back-top{
+
+    position:fixed;
+
+    right:25px;
+
+    bottom:25px;
+
+    width:55px;
+
+    height:55px;
+
+    border:none;
+
+    border-radius:50%;
+
+    cursor:pointer;
+
+    background:linear-gradient(
+        135deg,
+        var(--primary),
+        var(--accent)
+    );
+
+    color:#fff;
+
+    font-size:20px;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:.3s;
+
+    z-index:999;
+
+}
+
+.back-top.show{
+
+    opacity:1;
+
+    visibility:visible;
+
+}
+
+.back-top:hover{
+
+    transform:translateY(-5px);
+
+}
