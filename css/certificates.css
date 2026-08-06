@@ -1,0 +1,148 @@
+/* ==========================================
+   CERTIFICATES SECTION
+========================================== */
+
+.certificates{
+    padding:120px 0;
+    position:relative;
+}
+
+.certificate-filter{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:15px;
+    margin:40px 0 60px;
+}
+
+.certificate-btn{
+
+    padding:12px 24px;
+
+    border:none;
+
+    border-radius:50px;
+
+    background:var(--card);
+
+    color:var(--text);
+
+    cursor:pointer;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.certificate-btn:hover,
+.certificate-btn.active{
+
+    background:linear-gradient(
+        135deg,
+        var(--primary),
+        var(--accent)
+    );
+
+    color:#fff;
+
+}
+
+.certificate-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(auto-fit,minmax(330px,1fr));
+
+    gap:30px;
+
+}
+
+.certificate-card{
+
+    overflow:hidden;
+
+    border-radius:22px;
+
+    transition:.35s;
+
+}
+
+.certificate-card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:var(--shadow);
+
+}
+
+.certificate-card img{
+
+    width:100%;
+
+    height:220px;
+
+    object-fit:cover;
+
+    transition:.4s;
+
+}
+
+.certificate-card:hover img{
+
+    transform:scale(1.06);
+
+}
+
+.certificate-content{
+
+    padding:25px;
+
+}
+
+.certificate-content h3{
+
+    margin-bottom:12px;
+
+    font-size:1.4rem;
+
+}
+
+.certificate-content p{
+
+    color:var(--text-light);
+
+    margin-bottom:10px;
+
+}
+
+.certificate-content span{
+
+    display:block;
+
+    margin-bottom:20px;
+
+    color:var(--primary);
+
+}
+
+.certificate-buttons{
+
+    display:flex;
+
+    gap:15px;
+
+    flex-wrap:wrap;
+
+}
+
+@media(max-width:768px){
+
+    .certificate-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
