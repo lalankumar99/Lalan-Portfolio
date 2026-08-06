@@ -1,0 +1,21 @@
+# =====================================================
+# Lalan Kumar - Premium Portfolio
+# File : robots.txt
+# Description:
+# Controls how search engine crawlers access this website.
+# Allows indexing of all public pages and points to the XML sitemap.
+# =====================================================
+
+# Allow all search engines
+User-agent: *
+Allow: /
+
+# Block unnecessary folders (optional)
+# Disallow: /private/
+# Disallow: /admin/
+
+# Crawl delay (optional)
+# Crawl-delay: 5
+
+# XML Sitemap
+Sitemap: https://lalankumar99.github.io/Lalan-Portfolio/sitemap.xml
