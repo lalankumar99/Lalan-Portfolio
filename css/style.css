@@ -155,3 +155,26 @@ section{
     -webkit-text-fill-color:transparent;
 
 }
+/* ==========================================
+   LIGHT THEME
+========================================== */
+
+body.light-theme{
+
+    background:#f4f7fb;
+
+    color:#111827;
+
+}
+
+body.light-theme .glass{
+
+    background:rgba(255,255,255,.8);
+
+}
+
+body.light-theme .section{
+
+    color:#111827;
+
+}
