@@ -1,0 +1,329 @@
+/* ==========================================
+   PREMIUM HEADER
+========================================== */
+
+.header{
+
+    position:fixed;
+
+    top:20px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:95%;
+
+    max-width:1400px;
+
+    z-index:9999;
+
+}
+
+.header-wrapper{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:14px 28px;
+
+    border-radius:20px;
+
+    background:rgba(18,26,47,.75);
+
+    backdrop-filter:blur(25px);
+
+    -webkit-backdrop-filter:blur(25px);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    box-shadow:0 15px 40px rgba(0,0,0,.30);
+
+}
+
+/* ==========================
+   LOGO
+========================== */
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+}
+
+.logo-img{
+
+    width:52px;
+
+    height:52px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    border:2px solid var(--primary);
+
+}
+
+.logo-content h2{
+
+    font-size:1.2rem;
+
+    font-weight:700;
+
+}
+
+.logo-content span{
+
+    display:block;
+
+    font-size:.8rem;
+
+    color:var(--text-light);
+
+}
+
+/* ==========================
+   NAVIGATION
+========================== */
+
+.desktop-nav ul{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:28px;
+
+    list-style:none;
+
+}
+
+.desktop-nav a{
+
+    color:var(--text);
+
+    font-weight:500;
+
+    transition:.3s;
+
+    position:relative;
+
+}
+
+.desktop-nav a:hover,
+
+.desktop-nav a.active{
+
+    color:var(--primary);
+
+}
+
+.desktop-nav a::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-6px;
+
+    width:0;
+
+    height:2px;
+
+    background:var(--primary);
+
+    transition:.3s;
+
+}
+
+.desktop-nav a:hover::after,
+
+.desktop-nav a.active::after{
+
+    width:100%;
+
+}
+
+/* ==========================
+   RIGHT SIDE
+========================== */
+
+.header-actions{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+}
+
+/* Theme Button */
+
+.icon-btn{
+
+    width:46px;
+
+    height:46px;
+
+    border:none;
+
+    border-radius:50%;
+
+    cursor:pointer;
+
+    color:#fff;
+
+    background:rgba(255,255,255,.08);
+
+    transition:.3s;
+
+}
+
+.icon-btn:hover{
+
+    background:var(--primary);
+
+}
+
+/* Resume Button */
+
+.resume-btn{
+
+    padding:12px 24px;
+
+    border-radius:50px;
+
+    background:linear-gradient(
+        135deg,
+        var(--primary),
+        var(--accent)
+    );
+
+    color:#fff;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.resume-btn:hover{
+
+    transform:translateY(-3px);
+
+}
+
+/* ==========================
+   MENU BUTTON
+========================== */
+
+.menu-btn{
+
+    display:none;
+
+    width:48px;
+
+    height:48px;
+
+    border:none;
+
+    background:none;
+
+    cursor:pointer;
+
+}
+
+.menu-btn span{
+
+    display:block;
+
+    width:26px;
+
+    height:3px;
+
+    margin:5px auto;
+
+    background:#fff;
+
+    border-radius:20px;
+
+    transition:.3s;
+
+}
+
+/* ==========================
+   STICKY
+========================== */
+
+.header.sticky .header-wrapper{
+
+    background:rgba(10,15,30,.92);
+
+}
+
+/* ==========================
+   MOBILE
+========================== */
+
+@media(max-width:992px){
+
+    .desktop-nav{
+
+        display:none;
+
+    }
+
+    .resume-btn{
+
+        display:none;
+
+    }
+
+    .menu-btn{
+
+        display:block;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .header{
+
+        top:10px;
+
+        width:96%;
+
+    }
+
+    .header-wrapper{
+
+        padding:12px 18px;
+
+    }
+
+    .logo-content h2{
+
+        font-size:1rem;
+
+    }
+
+    .logo-content span{
+
+        font-size:.75rem;
+
+    }
+
+}
