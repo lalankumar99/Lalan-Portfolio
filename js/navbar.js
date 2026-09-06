@@ -3,132 +3,122 @@
    NAVBAR CONTROLLER
 ========================================== */
 
-(function () {
+"use strict";
 
-    "use strict";
+
+// ==========================================
+// INITIALIZE NAVBAR
+// ==========================================
+
+function initializeNavbar() {
+
+    const header = document.getElementById("header");
+    const menuBtn = document.getElementById("menuBtn");
+    const sidebar = document.getElementById("sidebar");
+
+    const links = document.querySelectorAll(
+        ".desktop-nav a"
+    );
 
 
     // ==========================================
-    // NAVBAR INITIALIZATION
+    // HEADER CHECK
     // ==========================================
 
-    function initializeNavbar() {
+    if (!header) {
 
-        const header =
-            document.getElementById("header");
-
-        const menuBtn =
-            document.getElementById("menuBtn");
-
-        const sidebar =
-            document.getElementById("sidebar");
-
-
-        // ------------------------------------------
-        // Check Header
-        // ------------------------------------------
-
-        if (!header) {
-
-            console.warn(
-                "[Navbar] Header element not found."
-            );
-
-            return;
-
-        }
-
-
-        // ==========================================
-        // STICKY HEADER
-        // ==========================================
-
-        function updateStickyHeader() {
-
-            if (window.scrollY > 80) {
-
-                header.classList.add("sticky");
-
-            } else {
-
-                header.classList.remove("sticky");
-
-            }
-
-        }
-
-
-        // Run once on initialization
-
-        updateStickyHeader();
-
-
-        // Listen for scrolling
-
-        window.addEventListener(
-            "scroll",
-            updateStickyHeader,
-            { passive: true }
+        console.warn(
+            "[Navbar] Header not found."
         );
 
+        return;
 
-        // ==========================================
-        // MOBILE MENU
-        // ==========================================
-
-        if (menuBtn && sidebar) {
-
-            menuBtn.addEventListener(
-                "click",
-                function () {
-
-                    const isActive =
-                        sidebar.classList.toggle("active");
+    }
 
 
-                    // Accessibility
+    // ==========================================
+    // STICKY HEADER
+    // ==========================================
 
-                    menuBtn.setAttribute(
-                        "aria-expanded",
-                        String(isActive)
-                    );
+    function updateStickyHeader() {
 
+        if (window.scrollY > 80) {
 
-                    sidebar.setAttribute(
-                        "aria-hidden",
-                        String(!isActive)
-                    );
-
-                }
-            );
+            header.classList.add("sticky");
 
         } else {
 
-            console.warn(
-                "[Navbar] Menu button or sidebar not found."
-            );
+            header.classList.remove("sticky");
 
         }
 
-
-        // ==========================================
-        // NAVIGATION LINKS
-        // ==========================================
-
-        const links =
-            document.querySelectorAll(
-                ".nav-menu a"
-            );
+    }
 
 
-        if (!links.length) {
+    // Run once
 
-            console.warn(
-                "[Navbar] Navigation links not found."
-            );
+    updateStickyHeader();
 
-        }
 
+    // Run while scrolling
+
+    window.addEventListener(
+        "scroll",
+        updateStickyHeader,
+        { passive: true }
+    );
+
+
+    // ==========================================
+    // MOBILE MENU
+    // ==========================================
+
+    if (menuBtn && sidebar) {
+
+        menuBtn.addEventListener(
+            "click",
+            function () {
+
+                const isOpen =
+                    sidebar.classList.toggle("active");
+
+
+                // Accessibility
+
+                menuBtn.setAttribute(
+                    "aria-expanded",
+                    String(isOpen)
+                );
+
+                menuBtn.setAttribute(
+                    "aria-label",
+                    isOpen
+                        ? "Close Navigation Menu"
+                        : "Open Navigation Menu"
+                );
+
+                sidebar.setAttribute(
+                    "aria-hidden",
+                    String(!isOpen)
+                );
+
+            }
+        );
+
+    } else {
+
+        console.warn(
+            "[Navbar] Mobile menu elements not found."
+        );
+
+    }
+
+
+    // ==========================================
+    // DESKTOP NAVIGATION
+    // ==========================================
+
+    if (links.length > 0) {
 
         links.forEach(function (link) {
 
@@ -137,6 +127,7 @@
                 function () {
 
                     // Remove active class
+                    // from every navigation link
 
                     links.forEach(
                         function (item) {
@@ -150,6 +141,7 @@
 
 
                     // Add active class
+                    // to clicked link
 
                     link.classList.add(
                         "active"
@@ -157,6 +149,7 @@
 
 
                     // Close mobile sidebar
+                    // after navigation
 
                     if (sidebar) {
 
@@ -167,7 +160,7 @@
                     }
 
 
-                    // Update accessibility state
+                    // Reset menu button
 
                     if (menuBtn) {
 
@@ -176,7 +169,15 @@
                             "false"
                         );
 
+                        menuBtn.setAttribute(
+                            "aria-label",
+                            "Open Navigation Menu"
+                        );
+
                     }
+
+
+                    // Reset sidebar accessibility
 
                     if (sidebar) {
 
@@ -192,27 +193,160 @@
 
         });
 
+    } else {
 
-        console.log(
-            "[Navbar] Initialized successfully."
+        console.warn(
+            "[Navbar] Desktop navigation links not found."
         );
 
     }
 
 
     // ==========================================
-    // WAIT FOR COMPONENTS
+    // CLOSE SIDEBAR WHEN CLICKING OUTSIDE
     // ==========================================
 
     document.addEventListener(
-        "componentsLoaded",
-        function () {
+        "click",
+        function (event) {
 
-            initializeNavbar();
+            if (!sidebar || !menuBtn) {
 
-        },
-        { once: true }
+                return;
+
+            }
+
+
+            const clickedInsideSidebar =
+                sidebar.contains(event.target);
+
+            const clickedMenuButton =
+                menuBtn.contains(event.target);
+
+
+            if (
+                !clickedInsideSidebar &&
+                !clickedMenuButton
+            ) {
+
+                sidebar.classList.remove(
+                    "active"
+                );
+
+
+                menuBtn.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+                menuBtn.setAttribute(
+                    "aria-label",
+                    "Open Navigation Menu"
+                );
+
+                sidebar.setAttribute(
+                    "aria-hidden",
+                    "true"
+                );
+
+            }
+
+        }
     );
 
 
-})();
+    // ==========================================
+    // ESCAPE KEY
+    // ==========================================
+
+    document.addEventListener(
+        "keydown",
+        function (event) {
+
+            if (event.key !== "Escape") {
+
+                return;
+
+            }
+
+
+            if (!sidebar || !menuBtn) {
+
+                return;
+
+            }
+
+
+            sidebar.classList.remove(
+                "active"
+            );
+
+
+            menuBtn.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+            menuBtn.setAttribute(
+                "aria-label",
+                "Open Navigation Menu"
+            );
+
+            sidebar.setAttribute(
+                "aria-hidden",
+                "true"
+            );
+
+        }
+    );
+
+
+    // ==========================================
+    // INITIAL ACCESSIBILITY STATE
+    // ==========================================
+
+    if (menuBtn) {
+
+        menuBtn.setAttribute(
+            "aria-expanded",
+            "false"
+        );
+
+    }
+
+
+    if (sidebar) {
+
+        sidebar.setAttribute(
+            "aria-hidden",
+            "true"
+        );
+
+    }
+
+
+    // ==========================================
+    // SUCCESS MESSAGE
+    // ==========================================
+
+    console.log(
+        "[Navbar] Initialized successfully."
+    );
+
+}
+
+
+// ==========================================
+// WAIT FOR DYNAMIC COMPONENTS
+// ==========================================
+//
+// app.js loads header.html and sidebar.html
+// dynamically. Therefore navbar.js must wait
+// until componentsLoaded is fired.
+// ==========================================
+
+document.addEventListener(
+    "componentsLoaded",
+    initializeNavbar,
+    { once: true }
+);
