@@ -5,7 +5,7 @@
 <style>
 
     /* ==========================================
-       HERO SECTION
+       HERO
     ========================================== */
 
     .hero {
@@ -17,14 +17,15 @@
         display: grid;
 
         grid-template-columns:
-            1.15fr 0.85fr;
+            minmax(0, 1.1fr)
+            minmax(340px, 0.9fr);
 
         align-items: center;
 
-        gap: 60px;
+        gap: 70px;
 
         padding:
-            150px 5% 100px;
+            150px 6% 90px;
 
         position: relative;
 
@@ -34,51 +35,298 @@
 
 
     /* ==========================================
-       HERO LEFT
+       BACKGROUND GRID
     ========================================== */
 
-    .hero-left {
+    .hero::before {
 
-        max-width: 700px;
+        content: "";
 
-        position: relative;
+        position: absolute;
 
-        z-index: 2;
+        inset: 0;
+
+        background-image:
+            linear-gradient(
+                rgba(59,130,246,0.035) 1px,
+                transparent 1px
+            ),
+            linear-gradient(
+                90deg,
+                rgba(59,130,246,0.035) 1px,
+                transparent 1px
+            );
+
+        background-size:
+            55px 55px;
+
+        mask-image:
+            linear-gradient(
+                to bottom,
+                black,
+                transparent
+            );
+
+        pointer-events: none;
 
     }
 
 
     /* ==========================================
-       WELCOME BADGE
+       GLOW
     ========================================== */
 
-    .badge {
+    .hero::after {
+
+        content: "";
+
+        position: absolute;
+
+        width: 500px;
+        height: 500px;
+
+        right: -180px;
+        top: 15%;
+
+        border-radius: 50%;
+
+        background:
+            rgba(59,130,246,0.10);
+
+        filter:
+            blur(100px);
+
+        pointer-events: none;
+
+    }
+
+
+    /* ==========================================
+       LEFT CONTENT
+    ========================================== */
+
+    .hero-left {
+
+        position: relative;
+
+        z-index: 2;
+
+        max-width: 760px;
+
+    }
+
+
+    /* ==========================================
+       SMALL INTRO
+    ========================================== */
+
+    .hero-intro {
 
         display: inline-flex;
 
         align-items: center;
 
-        gap: 8px;
-
-        padding:
-            8px 16px;
+        gap: 10px;
 
         margin-bottom: 22px;
 
-        border:
-            1px solid
-            rgba(59,130,246,0.30);
+        color: var(--secondary);
 
-        border-radius: 50px;
+        font-size: 0.82rem;
+
+        font-weight: 600;
+
+        letter-spacing: 2px;
+
+        text-transform: uppercase;
+
+    }
+
+
+    .hero-intro::before {
+
+        content: "";
+
+        width: 35px;
+
+        height: 2px;
 
         background:
-            rgba(59,130,246,0.08);
-
-        color:
             var(--secondary);
 
+    }
+
+
+    /* ==========================================
+       MAIN HEADING
+    ========================================== */
+
+    .hero h1 {
+
+        margin: 0;
+
         font-size:
-            0.85rem;
+            clamp(3rem, 6vw, 5.8rem);
+
+        line-height: 1.02;
+
+        font-weight: 800;
+
+        letter-spacing: -2px;
+
+        color: var(--text);
+
+    }
+
+
+    .hero-name {
+
+        display: block;
+
+        margin-top: 8px;
+
+    }
+
+
+    /* ==========================================
+       GRADIENT NAME
+    ========================================== */
+
+    .hero-name .gradient {
+
+        background:
+            linear-gradient(
+                135deg,
+                var(--primary),
+                var(--secondary),
+                var(--accent)
+            );
+
+        -webkit-background-clip: text;
+
+        background-clip: text;
+
+        -webkit-text-fill-color: transparent;
+
+    }
+
+
+    /* ==========================================
+       ROLE
+    ========================================== */
+
+    .hero-role {
+
+        display: flex;
+
+        align-items: center;
+
+        gap: 12px;
+
+        margin-top: 24px;
+
+        color: var(--text-light);
+
+        font-size:
+            clamp(1.05rem, 2vw, 1.35rem);
+
+        font-weight: 500;
+
+    }
+
+
+    .hero-role-line {
+
+        width: 45px;
+
+        height: 1px;
+
+        background:
+            var(--primary);
+
+    }
+
+
+    /* ==========================================
+       DESCRIPTION
+    ========================================== */
+
+    .hero-description {
+
+        max-width: 650px;
+
+        margin-top: 22px;
+
+        color: var(--text-light);
+
+        font-size: 1rem;
+
+        line-height: 1.85;
+
+    }
+
+
+    /* ==========================================
+       BUTTONS
+    ========================================== */
+
+    .hero-buttons {
+
+        display: flex;
+
+        flex-wrap: wrap;
+
+        gap: 14px;
+
+        margin-top: 32px;
+
+    }
+
+
+    .hero-buttons .btn-primary,
+    .hero-buttons .btn-secondary {
+
+        min-width: 165px;
+
+    }
+
+
+    /* ==========================================
+       TECHNOLOGY TAGS
+    ========================================== */
+
+    .hero-tags {
+
+        display: flex;
+
+        flex-wrap: wrap;
+
+        gap: 9px;
+
+        margin-top: 30px;
+
+    }
+
+
+    .hero-tag {
+
+        padding:
+            7px 13px;
+
+        border:
+            1px solid
+            rgba(255,255,255,0.10);
+
+        border-radius: 8px;
+
+        background:
+            rgba(255,255,255,0.04);
+
+        color:
+            var(--text-light);
+
+        font-size:
+            0.72rem;
 
         font-weight:
             500;
@@ -87,127 +335,218 @@
 
 
     /* ==========================================
-       HERO TITLE
+       RIGHT VISUAL CARD
     ========================================== */
 
-    .hero h1 {
+    .hero-right {
 
-        margin: 0;
+        position: relative;
 
-        font-size:
-            clamp(2.5rem, 6vw, 5rem);
+        z-index: 2;
 
-        line-height:
-            1.1;
+        display: flex;
 
-        font-weight:
-            800;
+        justify-content: center;
 
-        letter-spacing:
-            -1px;
-
-        color:
-            var(--text);
+        align-items: center;
 
     }
 
 
-    .hero h1 .gradient {
+    .hero-card {
 
-        display: inline-block;
+        position: relative;
+
+        width: min(430px, 100%);
+
+        padding: 18px;
+
+        border-radius: 28px;
+
+        background:
+            linear-gradient(
+                145deg,
+                rgba(255,255,255,0.10),
+                rgba(255,255,255,0.035)
+            );
+
+        border:
+            1px solid
+            rgba(255,255,255,0.12);
+
+        backdrop-filter:
+            blur(25px);
+
+        -webkit-backdrop-filter:
+            blur(25px);
+
+        box-shadow:
+            0 30px 80px
+            rgba(0,0,0,0.35);
+
+        transform:
+            rotate(2deg);
+
+        transition:
+            transform 0.4s ease;
+
+    }
+
+
+    .hero-card:hover {
+
+        transform:
+            rotate(0deg)
+            translateY(-8px);
 
     }
 
 
     /* ==========================================
-       TYPING TITLE
+       IMAGE FRAME
     ========================================== */
 
-    .hero h2 {
+    .hero-image-frame {
 
-        margin-top:
-            18px;
+        position: relative;
+
+        overflow: hidden;
+
+        border-radius: 20px;
+
+        aspect-ratio: 4 / 4.6;
+
+        background:
+            var(--card);
+
+    }
+
+
+    .hero-image-frame::after {
+
+        content: "";
+
+        position: absolute;
+
+        inset: 0;
+
+        background:
+            linear-gradient(
+                to top,
+                rgba(5,10,20,0.65),
+                transparent 45%
+            );
+
+        pointer-events: none;
+
+    }
+
+
+    .hero-image-frame img {
+
+        width: 100%;
+        height: 100%;
+
+        object-fit: cover;
+
+    }
+
+
+    /* ==========================================
+       CARD LABEL
+    ========================================== */
+
+    .hero-card-label {
+
+        position: absolute;
+
+        left: 30px;
+        bottom: 30px;
+
+        z-index: 3;
+
+        display: flex;
+
+        align-items: center;
+
+        gap: 10px;
+
+        color: #FFFFFF;
+
+    }
+
+
+    .hero-card-dot {
+
+        width: 9px;
+        height: 9px;
+
+        border-radius: 50%;
+
+        background:
+            #22C55E;
+
+        box-shadow:
+            0 0 12px
+            rgba(34,197,94,0.8);
+
+    }
+
+
+    .hero-card-label span {
+
+        font-size:
+            0.78rem;
+
+        font-weight:
+            500;
+
+    }
+
+
+    /* ==========================================
+       FLOATING TECH CARD
+    ========================================== */
+
+    .hero-floating-card {
+
+        position: absolute;
+
+        right: -25px;
+
+        bottom: 45px;
+
+        z-index: 5;
+
+        padding:
+            13px 17px;
+
+        border-radius:
+            14px;
+
+        background:
+            rgba(18,26,47,0.90);
+
+        border:
+            1px solid
+            rgba(255,255,255,0.10);
+
+        backdrop-filter:
+            blur(18px);
+
+        box-shadow:
+            0 15px 40px
+            rgba(0,0,0,0.3);
+
+    }
+
+
+    .hero-floating-card strong {
+
+        display: block;
 
         color:
             var(--secondary);
-
-        font-size:
-            clamp(1.2rem, 2.5vw, 1.8rem);
-
-        font-weight:
-            600;
-
-    }
-
-
-    /* ==========================================
-       HERO DESCRIPTION
-    ========================================== */
-
-    .hero p {
-
-        max-width:
-            650px;
-
-        margin-top:
-            20px;
-
-        color:
-            var(--text-light);
-
-        font-size:
-            1rem;
-
-        line-height:
-            1.8;
-
-    }
-
-
-    /* ==========================================
-       HERO BUTTONS
-    ========================================== */
-
-    .hero-buttons {
-
-        display:
-            flex;
-
-        flex-wrap:
-            wrap;
-
-        align-items:
-            center;
-
-        gap:
-            14px;
-
-        margin-top:
-            30px;
-
-    }
-
-
-    /* ==========================================
-       HERO SOCIAL
-    ========================================== */
-
-    .hero-social {
-
-        display:
-            flex;
-
-        flex-wrap:
-            wrap;
-
-        gap:
-            18px;
-
-        margin-top:
-            28px;
-
-        color:
-            var(--text-light);
 
         font-size:
             0.9rem;
@@ -215,177 +554,13 @@
     }
 
 
-    .hero-social span,
-    .hero-social a {
-
-        transition:
-            color 0.3s ease,
-            transform 0.3s ease;
-
-    }
-
-
-    .hero-social a:hover {
+    .hero-floating-card span {
 
         color:
-            var(--primary);
+            var(--text-light);
 
-        transform:
-            translateY(-2px);
-
-    }
-
-
-    /* ==========================================
-       HERO RIGHT
-    ========================================== */
-
-    .hero-right {
-
-        display:
-            flex;
-
-        align-items:
-            center;
-
-        justify-content:
-            center;
-
-        position:
-            relative;
-
-        z-index:
-            2;
-
-    }
-
-
-    /* ==========================================
-       PROFILE IMAGE
-    ========================================== */
-
-    .hero-right img {
-
-        width:
-            min(420px, 80vw);
-
-        aspect-ratio:
-            1 / 1;
-
-        object-fit:
-            cover;
-
-        border-radius:
-            50%;
-
-        border:
-            4px solid
-            var(--primary);
-
-        box-shadow:
-            0 0 0 12px
-            rgba(59,130,246,0.06),
-            0 25px 70px
-            rgba(0,0,0,0.35);
-
-        animation:
-            heroFloat 5s ease-in-out infinite;
-
-    }
-
-
-    /* ==========================================
-       FLOATING ANIMATION
-    ========================================== */
-
-    @keyframes heroFloat {
-
-        0%,
-        100% {
-
-            transform:
-                translateY(0);
-
-        }
-
-        50% {
-
-            transform:
-                translateY(-12px);
-
-        }
-
-    }
-
-
-    /* ==========================================
-       BACKGROUND GLOW
-    ========================================== */
-
-    .hero::before {
-
-        content: "";
-
-        position:
-            absolute;
-
-        width:
-            420px;
-
-        height:
-            420px;
-
-        top:
-            15%;
-
-        right:
-            -180px;
-
-        border-radius:
-            50%;
-
-        background:
-            rgba(59,130,246,0.12);
-
-        filter:
-            blur(80px);
-
-        pointer-events:
-            none;
-
-    }
-
-
-    .hero::after {
-
-        content: "";
-
-        position:
-            absolute;
-
-        width:
-            350px;
-
-        height:
-            350px;
-
-        bottom:
-            -180px;
-
-        left:
-            -120px;
-
-        border-radius:
-            50%;
-
-        background:
-            rgba(139,92,246,0.10);
-
-        filter:
-            blur(80px);
-
-        pointer-events:
-            none;
+        font-size:
+            0.68rem;
 
     }
 
@@ -394,10 +569,40 @@
        LIGHT THEME
     ========================================== */
 
-    body.light-theme .hero {
+    body.light-theme .hero-card {
 
         background:
-            transparent;
+            rgba(255,255,255,0.75);
+
+        border-color:
+            rgba(17,24,39,0.10);
+
+        box-shadow:
+            0 30px 70px
+            rgba(15,23,42,0.15);
+
+    }
+
+
+    body.light-theme .hero-floating-card {
+
+        background:
+            rgba(255,255,255,0.92);
+
+        border-color:
+            rgba(17,24,39,0.10);
+
+    }
+
+
+    .hero-card,
+    .hero-floating-card,
+    .hero-tag {
+
+        transition:
+            background 0.35s ease,
+            border-color 0.35s ease,
+            transform 0.35s ease;
 
     }
 
@@ -406,18 +611,15 @@
        TABLET
     ========================================== */
 
-    @media (max-width: 992px) {
+    @media (max-width: 1000px) {
 
         .hero {
 
-            grid-template-columns:
-                1fr;
+            grid-template-columns: 1fr;
 
-            text-align:
-                center;
+            text-align: center;
 
-            gap:
-                45px;
+            gap: 50px;
 
             padding:
                 140px 6% 80px;
@@ -436,7 +638,16 @@
         }
 
 
-        .hero p {
+        .hero-intro,
+        .hero-role {
+
+            justify-content:
+                center;
+
+        }
+
+
+        .hero-description {
 
             margin-left:
                 auto;
@@ -448,7 +659,7 @@
 
 
         .hero-buttons,
-        .hero-social {
+        .hero-tags {
 
             justify-content:
                 center;
@@ -458,16 +669,13 @@
 
         .hero-right {
 
-            order:
-                -1;
+            max-width:
+                460px;
 
-        }
+            width: 100%;
 
-
-        .hero-right img {
-
-            width:
-                min(320px, 70vw);
+            margin:
+                0 auto;
 
         }
 
@@ -478,18 +686,15 @@
        MOBILE
     ========================================== */
 
-    @media (max-width: 768px) {
+    @media (max-width: 600px) {
 
         .hero {
 
-            min-height:
-                auto;
-
             padding:
-                125px 5% 70px;
+                120px 5% 65px;
 
             gap:
-                35px;
+                40px;
 
         }
 
@@ -497,34 +702,78 @@
         .hero h1 {
 
             font-size:
-                clamp(2.2rem, 11vw, 3.5rem);
+                clamp(2.5rem, 13vw, 4rem);
+
+            letter-spacing:
+                -1px;
 
         }
 
 
-        .hero h2 {
+        .hero-intro {
 
             font-size:
-                1.15rem;
+                0.7rem;
+
+            letter-spacing:
+                1.4px;
 
         }
 
 
-        .hero p {
-
-            font-size:
-                0.92rem;
-
-            line-height:
-                1.7;
-
-        }
-
-
-        .hero-right img {
+        .hero-intro::before {
 
             width:
-                min(270px, 68vw);
+                22px;
+
+        }
+
+
+        .hero-role {
+
+            font-size:
+                1rem;
+
+        }
+
+
+        .hero-description {
+
+            font-size:
+                0.9rem;
+
+        }
+
+
+        .hero-card {
+
+            padding:
+                12px;
+
+            border-radius:
+                22px;
+
+            transform:
+                none;
+
+        }
+
+
+        .hero-card:hover {
+
+            transform:
+                translateY(-4px);
+
+        }
+
+
+        .hero-floating-card {
+
+            right:
+                -5px;
+
+            bottom:
+                25px;
 
         }
 
@@ -534,8 +783,8 @@
             flex-direction:
                 column;
 
-            width:
-                100%;
+            align-items:
+                center;
 
         }
 
@@ -554,42 +803,23 @@
        SMALL MOBILE
     ========================================== */
 
-    @media (max-width: 480px) {
+    @media (max-width: 400px) {
 
-        .hero {
+        .hero-floating-card {
 
-            padding:
-                110px 5% 60px;
+            display:
+                none;
 
         }
 
 
-        .badge {
+        .hero-tag {
 
             font-size:
-                0.75rem;
+                0.65rem;
 
             padding:
-                7px 12px;
-
-        }
-
-
-        .hero-right img {
-
-            width:
-                220px;
-
-        }
-
-
-        .hero-social {
-
-            gap:
-                12px;
-
-            font-size:
-                0.82rem;
+                6px 10px;
 
         }
 
@@ -602,9 +832,10 @@
 
     @media (prefers-reduced-motion: reduce) {
 
-        .hero-right img {
+        .hero-card,
+        .hero-card:hover {
 
-            animation:
+            transform:
                 none;
 
         }
@@ -615,7 +846,7 @@
 
 
 <!-- ==========================================
-     HERO
+     HERO SECTION
 ========================================== -->
 
 <section
@@ -625,65 +856,59 @@
 
 
     <!-- ==========================================
-         HERO CONTENT
+         LEFT CONTENT
     =========================================== -->
 
     <div class="hero-left">
 
 
-        <!-- Welcome -->
+        <div class="hero-intro">
 
-        <span class="badge">
+            Engineering • Technology • Creativity
 
-            👋 Welcome to My Portfolio
+        </div>
 
-        </span>
-
-
-        <!-- Main Heading -->
 
         <h1>
 
-            Hi, I'm
+            Building Ideas
 
-            <span class="gradient">
+            <span class="hero-name">
 
-                Lalan Kumar
+                <span class="gradient">
+                    with Lalan Kumar
+                </span>
 
             </span>
 
         </h1>
 
 
-        <!-- Professional Title -->
+        <div class="hero-role">
 
-        <h2 id="typing-text">
+            <span class="hero-role-line"></span>
 
-            Engineering Student
+            Engineering Student & Technology Creator
 
-        </h2>
+        </div>
 
 
-        <!-- Description -->
+        <p class="hero-description">
 
-        <p>
-
-            Passionate Web Developer, AI Creator and
-            Technology Enthusiast. I build premium
-            websites, modern web applications and
-            creative digital experiences.
+            I create modern websites, digital projects and
+            technology-focused experiences by combining
+            engineering thinking with creativity and AI.
 
         </p>
 
 
-        <!-- Buttons -->
-
         <div class="hero-buttons">
-
 
             <a
                 href="#projects"
                 class="btn-primary">
+
+                <i class="fas fa-folder-open"></i>
 
                 View Projects
 
@@ -696,63 +921,32 @@
                 target="_blank"
                 rel="noopener noreferrer">
 
-                Download Resume
+                <i class="fas fa-file-arrow-down"></i>
+
+                Resume
 
             </a>
-
 
         </div>
 
 
-        <!-- Social Links -->
+        <div class="hero-tags">
 
-        <div
-            class="hero-social"
-            aria-label="Social Links">
+            <span class="hero-tag">
+                Web Development
+            </span>
 
-            <a
-                href="#"
-                aria-label="GitHub">
+            <span class="hero-tag">
+                AI & Technology
+            </span>
 
-                GitHub
+            <span class="hero-tag">
+                Engineering
+            </span>
 
-            </a>
-
-
-            <a
-                href="#"
-                aria-label="LinkedIn">
-
-                LinkedIn
-
-            </a>
-
-
-            <a
-                href="#"
-                aria-label="YouTube">
-
-                YouTube
-
-            </a>
-
-
-            <a
-                href="#"
-                aria-label="Instagram">
-
-                Instagram
-
-            </a>
-
-
-            <a
-                href="#contact"
-                aria-label="Email">
-
-                Email
-
-            </a>
+            <span class="hero-tag">
+                Creative Projects
+            </span>
 
         </div>
 
@@ -760,15 +954,49 @@
 
 
     <!-- ==========================================
-         HERO IMAGE
+         RIGHT VISUAL
     =========================================== -->
 
     <div class="hero-right">
 
-        <img
-            src="assets/images/profile.png"
-            alt="Lalan Kumar">
+
+        <div class="hero-card">
+
+
+            <div class="hero-image-frame">
+
+                <img
+                    src="assets/images/profile.png"
+                    alt="Lalan Kumar">
+
+                <div class="hero-card-label">
+
+                    <span class="hero-card-dot"></span>
+
+                    <span>
+                        Available for Creative Projects
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="hero-floating-card">
+
+                <strong>
+                    LK
+                </strong>
+
+                <span>
+                    Engineer • Creator • Learner
+                </span>
+
+            </div>
+
+
+        </div>
 
     </div>
 
-    </section>
+     </section>
