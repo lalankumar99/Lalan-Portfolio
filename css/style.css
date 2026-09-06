@@ -1,261 +1,626 @@
 /* ==========================================
    LALAN KUMAR - PREMIUM PORTFOLIO
-   Global Styles
+   GLOBAL STYLES
 ========================================== */
 
-/* Google Font */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
-/* Reset */
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+/* ==========================================
+   GOOGLE FONT
+========================================== */
 
-html{
-    scroll-behavior:smooth;
-}
+@import url(
+    'https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap'
+);
 
-body{
-    font-family:'Poppins',sans-serif;
-    background:#0B1120;
-    color:#ffffff;
-    overflow-x:hidden;
-    line-height:1.6;
-}
 
-/* Theme */
-:root{
+/* ==========================================
+   ROOT VARIABLES
+========================================== */
 
-    --primary:#3B82F6;
-    --secondary:#06B6D4;
-    --accent:#8B5CF6;
+:root {
 
-    --bg:#0B1120;
-    --card:#121A2F;
+    --primary: #3B82F6;
+    --secondary: #06B6D4;
+    --accent: #8B5CF6;
 
-    --text:#ffffff;
-    --text-light:#B7C0D1;
+    --bg: #0B1120;
+    --card: #121A2F;
 
-    --radius:20px;
+    --text: #FFFFFF;
+    --text-light: #B7C0D1;
+
+    --border: rgba(255, 255, 255, 0.10);
+
+    --glass-bg: rgba(255, 255, 255, 0.05);
+
+    --radius: 20px;
 
     --shadow:
-    0 15px 40px rgba(0,0,0,.35);
+        0 15px 40px rgba(0, 0, 0, 0.35);
+
+    --transition:
+        0.35s ease;
 
 }
 
-/* Links */
 
-a{
-    text-decoration:none;
-    color:inherit;
-}
+/* ==========================================
+   RESET
+========================================== */
 
-/* Images */
+*,
+*::before,
+*::after {
 
-img{
-    width:100%;
-    display:block;
-}
+    margin: 0;
+    padding: 0;
 
-/* Container */
-
-.container{
-    width:min(1200px,92%);
-    margin:auto;
-}
-
-/* Section */
-
-section{
-    padding:100px 0;
-}
-
-/* Buttons */
-
-.btn-primary{
-
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-
-    padding:14px 32px;
-
-    background:linear-gradient(
-        135deg,
-        var(--primary),
-        var(--accent)
-    );
-
-    color:#fff;
-
-    border-radius:50px;
-
-    transition:.35s;
-
-    box-shadow:var(--shadow);
+    box-sizing: border-box;
 
 }
 
-.btn-primary:hover{
 
-    transform:translateY(-5px);
+/* ==========================================
+   HTML
+========================================== */
 
-}
+html {
 
-.btn-secondary{
+    scroll-behavior: smooth;
 
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-
-    padding:14px 32px;
-
-    border:2px solid var(--primary);
-
-    border-radius:50px;
-
-    transition:.35s;
+    scroll-padding-top: 80px;
 
 }
 
-.btn-secondary:hover{
 
-    background:var(--primary);
+/* ==========================================
+   BODY
+========================================== */
+
+body {
+
+    font-family:
+        'Poppins',
+        sans-serif;
+
+    background:
+        var(--bg);
+
+    color:
+        var(--text);
+
+    line-height:
+        1.6;
+
+    overflow-x:
+        hidden;
+
+    min-height:
+        100vh;
+
+    transition:
+        background-color var(--transition),
+        color var(--transition);
+
+}
+
+
+/* ==========================================
+   SELECTION
+========================================== */
+
+::selection {
+
+    background:
+        var(--primary);
+
+    color:
+        #FFFFFF;
 
 }
 
-/* Glass Card */
 
-.glass{
+/* ==========================================
+   LINKS
+========================================== */
 
-    background:rgba(255,255,255,.05);
+a {
 
-    backdrop-filter:blur(18px);
+    text-decoration:
+        none;
 
-    border:1px solid rgba(255,255,255,.10);
+    color:
+        inherit;
 
-    border-radius:20px;
+}
+
+
+/* ==========================================
+   BUTTONS
+========================================== */
+
+button,
+input,
+textarea,
+select {
+
+    font-family:
+        inherit;
 
 }
 
-/* Gradient Text */
 
-.gradient{
+/* ==========================================
+   BUTTON RESET
+========================================== */
 
-    background:linear-gradient(
-        135deg,
-        var(--primary),
-        var(--accent)
-    );
+button {
 
-    -webkit-background-clip:text;
-
-    -webkit-text-fill-color:transparent;
+    border:
+        0;
 
 }
+
+
+/* ==========================================
+   IMAGES
+========================================== */
+
+img {
+
+    max-width:
+        100%;
+
+    height:
+        auto;
+
+    display:
+        block;
+
+}
+
+
+/* ==========================================
+   CONTAINER
+========================================== */
+
+.container {
+
+    width:
+        min(1200px, 92%);
+
+    margin:
+        0 auto;
+
+}
+
+
+/* ==========================================
+   SECTIONS
+========================================== */
+
+section {
+
+    padding:
+        100px 0;
+
+}
+
+
+/* ==========================================
+   PRIMARY BUTTON
+========================================== */
+
+.btn-primary {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        8px;
+
+    padding:
+        14px 32px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary),
+            var(--accent)
+        );
+
+    color:
+        #FFFFFF;
+
+    border-radius:
+        50px;
+
+    cursor:
+        pointer;
+
+    transition:
+        transform var(--transition),
+        box-shadow var(--transition);
+
+    box-shadow:
+        var(--shadow);
+
+}
+
+
+/* ==========================================
+   PRIMARY BUTTON HOVER
+========================================== */
+
+.btn-primary:hover {
+
+    transform:
+        translateY(-5px);
+
+}
+
+
+/* ==========================================
+   SECONDARY BUTTON
+========================================== */
+
+.btn-secondary {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        8px;
+
+    padding:
+        14px 32px;
+
+    background:
+        transparent;
+
+    color:
+        var(--text);
+
+    border:
+        2px solid var(--primary);
+
+    border-radius:
+        50px;
+
+    cursor:
+        pointer;
+
+    transition:
+        background var(--transition),
+        color var(--transition),
+        transform var(--transition);
+
+}
+
+
+/* ==========================================
+   SECONDARY BUTTON HOVER
+========================================== */
+
+.btn-secondary:hover {
+
+    background:
+        var(--primary);
+
+    color:
+        #FFFFFF;
+
+    transform:
+        translateY(-3px);
+
+}
+
+
+/* ==========================================
+   GLASS CARD
+========================================== */
+
+.glass {
+
+    background:
+        var(--glass-bg);
+
+    backdrop-filter:
+        blur(18px);
+
+    -webkit-backdrop-filter:
+        blur(18px);
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        var(--radius);
+
+}
+
+
+/* ==========================================
+   GRADIENT TEXT
+========================================== */
+
+.gradient {
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary),
+            var(--accent)
+        );
+
+    -webkit-background-clip:
+        text;
+
+    background-clip:
+        text;
+
+    -webkit-text-fill-color:
+        transparent;
+
+}
+
+
 /* ==========================================
    LIGHT THEME
 ========================================== */
 
-body.light-theme{
+body.light-theme {
 
-    background:#f4f7fb;
+    --bg:
+        #F4F7FB;
 
-    color:#111827;
+    --card:
+        #FFFFFF;
+
+    --text:
+        #111827;
+
+    --text-light:
+        #4B5563;
+
+    --border:
+        rgba(17, 24, 39, 0.10);
+
+    --glass-bg:
+        rgba(255, 255, 255, 0.80);
+
+    --shadow:
+        0 15px 40px rgba(15, 23, 42, 0.12);
+
+    background:
+        var(--bg);
+
+    color:
+        var(--text);
 
 }
 
-body.light-theme .glass{
 
-    background:rgba(255,255,255,.8);
+/* ==========================================
+   LIGHT THEME - BODY ELEMENTS
+========================================== */
+
+body.light-theme .glass {
+
+    background:
+        var(--glass-bg);
+
+    border-color:
+        var(--border);
 
 }
 
-body.light-theme .section{
 
-    color:#111827;
+/* ==========================================
+   LIGHT THEME - SECTION
+========================================== */
+
+body.light-theme section {
+
+    color:
+        var(--text);
 
 }
+
+
 /* ==========================================
    SCROLL PROGRESS
 ========================================== */
 
-#scroll-progress{
+#scroll-progress {
 
-    position:fixed;
+    position:
+        fixed;
 
-    top:0;
+    top:
+        0;
 
-    left:0;
+    left:
+        0;
 
-    width:0;
+    width:
+        0;
 
-    height:4px;
+    height:
+        4px;
 
-    z-index:9999;
+    z-index:
+        9999;
 
-    background:linear-gradient(
-        90deg,
-        var(--primary),
-        var(--accent)
-    );
+    background:
+        linear-gradient(
+            90deg,
+            var(--primary),
+            var(--accent)
+        );
+
+    transition:
+        width 0.05s linear;
 
 }
+
 
 /* ==========================================
    BACK TO TOP
 ========================================== */
 
-.back-top{
+.back-top {
 
-    position:fixed;
+    position:
+        fixed;
 
-    right:25px;
+    right:
+        25px;
 
-    bottom:25px;
+    bottom:
+        25px;
 
-    width:55px;
+    width:
+        55px;
 
-    height:55px;
+    height:
+        55px;
 
-    border:none;
+    display:
+        flex;
 
-    border-radius:50%;
+    align-items:
+        center;
 
-    cursor:pointer;
+    justify-content:
+        center;
 
-    background:linear-gradient(
-        135deg,
-        var(--primary),
-        var(--accent)
-    );
+    border:
+        none;
 
-    color:#fff;
+    border-radius:
+        50%;
 
-    font-size:20px;
+    cursor:
+        pointer;
 
-    opacity:0;
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary),
+            var(--accent)
+        );
 
-    visibility:hidden;
+    color:
+        #FFFFFF;
 
-    transition:.3s;
+    font-size:
+        20px;
 
-    z-index:999;
+    opacity:
+        0;
+
+    visibility:
+        hidden;
+
+    pointer-events:
+        none;
+
+    transition:
+        opacity var(--transition),
+        visibility var(--transition),
+        transform var(--transition);
+
+    z-index:
+        999;
 
 }
 
-.back-top.show{
 
-    opacity:1;
+/* ==========================================
+   BACK TO TOP - SHOW
+========================================== */
 
-    visibility:visible;
+.back-top.show {
+
+    opacity:
+        1;
+
+    visibility:
+        visible;
+
+    pointer-events:
+        auto;
 
 }
 
-.back-top:hover{
 
-    transform:translateY(-5px);
+/* ==========================================
+   BACK TO TOP - HOVER
+========================================== */
+
+.back-top:hover {
+
+    transform:
+        translateY(-5px);
 
 }
+
+
+/* ==========================================
+   FOCUS ACCESSIBILITY
+========================================== */
+
+button:focus-visible,
+a:focus-visible {
+
+    outline:
+        3px solid var(--secondary);
+
+    outline-offset:
+        3px;
+
+}
+
+
+/* ==========================================
+   REDUCED MOTION
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+
+        scroll-behavior:
+            auto;
+
+    }
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration:
+            0.01ms !important;
+
+        animation-iteration-count:
+            1 !important;
+
+        transition-duration:
+            0.01ms !important;
+
+    }
+
+   }
