@@ -4,6 +4,449 @@
 
 <section id="about" class="about section">
 
+    <style>
+        /* =========================================
+           ABOUT SECTION — PREMIUM DESIGN
+        ========================================= */
+
+        .about {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about::before {
+            content: "";
+            position: absolute;
+            width: 420px;
+            height: 420px;
+            top: 10%;
+            left: -220px;
+            background: rgba(59, 130, 246, 0.12);
+            filter: blur(100px);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .about::after {
+            content: "";
+            position: absolute;
+            width: 350px;
+            height: 350px;
+            bottom: 0;
+            right: -180px;
+            background: rgba(139, 92, 246, 0.10);
+            filter: blur(100px);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        /* Section Heading */
+
+        .about .section-title {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 750px;
+            margin: 0 auto 55px;
+        }
+
+        .about .section-title span {
+            display: inline-block;
+            margin-bottom: 12px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            color: var(--secondary);
+        }
+
+        .about .section-title h2 {
+            margin: 0 0 15px;
+            font-size: clamp(30px, 5vw, 46px);
+            font-weight: 800;
+            line-height: 1.15;
+            color: var(--text);
+        }
+
+        .about .section-title p {
+            margin: 0;
+            color: var(--text-light);
+            line-height: 1.8;
+            font-size: 15px;
+        }
+
+        /* Main Layout */
+
+        .about-wrapper {
+            position: relative;
+            z-index: 1;
+
+            display: grid;
+            grid-template-columns: minmax(280px, 0.8fr) minmax(0, 1.4fr);
+            gap: 55px;
+            align-items: center;
+        }
+
+        /* Profile Card */
+
+        .about-image {
+            position: relative;
+            padding: 14px;
+            border-radius: 28px;
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(59, 130, 246, 0.16),
+                    rgba(255, 255, 255, 0.03)
+                );
+
+            border: 1px solid rgba(255, 255, 255, 0.10);
+
+            box-shadow:
+                0 25px 70px rgba(0, 0, 0, 0.30),
+                inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
+            transition:
+                transform 0.35s ease,
+                box-shadow 0.35s ease;
+        }
+
+        .about-image:hover {
+            transform: translateY(-8px);
+            box-shadow:
+                0 35px 80px rgba(0, 0, 0, 0.38),
+                0 0 40px rgba(59, 130, 246, 0.10);
+        }
+
+        .about-image::before {
+            content: "LK";
+            position: absolute;
+            top: 28px;
+            left: 28px;
+
+            width: 48px;
+            height: 48px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 14px;
+
+            background: rgba(11, 17, 32, 0.72);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: 800;
+
+            z-index: 2;
+            backdrop-filter: blur(12px);
+        }
+
+        .about-image img {
+            display: block;
+            width: 100%;
+            aspect-ratio: 4 / 4.7;
+            object-fit: cover;
+            object-position: center top;
+
+            border-radius: 20px;
+        }
+
+        /* Image Bottom Badge */
+
+        .about-image::after {
+            content: "ENGINEERING • TECHNOLOGY";
+            position: absolute;
+            left: 28px;
+            bottom: 28px;
+
+            padding: 10px 14px;
+
+            border-radius: 10px;
+
+            background: rgba(11, 17, 32, 0.78);
+            border: 1px solid rgba(255, 255, 255, 0.10);
+
+            color: #dbeafe;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+
+            backdrop-filter: blur(12px);
+        }
+
+        /* About Content */
+
+        .about-content {
+            min-width: 0;
+        }
+
+        .about-content h3 {
+            margin: 0 0 18px;
+
+            font-size: clamp(25px, 4vw, 34px);
+            line-height: 1.25;
+            font-weight: 800;
+
+            color: var(--text);
+        }
+
+        .about-content > p {
+            margin: 0 0 30px;
+
+            max-width: 760px;
+
+            color: var(--text-light);
+            font-size: 15px;
+            line-height: 1.85;
+        }
+
+        /* Personal Information */
+
+        .about-info {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+
+        .about-info > div {
+            padding: 15px 17px;
+
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+
+            border-radius: 14px;
+
+            background: rgba(255, 255, 255, 0.035);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+
+            transition:
+                transform 0.25s ease,
+                border-color 0.25s ease,
+                background 0.25s ease;
+        }
+
+        .about-info > div:hover {
+            transform: translateY(-3px);
+            background: rgba(59, 130, 246, 0.06);
+            border-color: rgba(59, 130, 246, 0.25);
+        }
+
+        .about-info strong {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--secondary);
+        }
+
+        .about-info span {
+            font-size: 14px;
+            color: var(--text);
+            line-height: 1.5;
+            word-break: break-word;
+        }
+
+        /* Highlights */
+
+        .about-highlights {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+
+        .about-highlights > div {
+            padding: 20px 12px;
+
+            text-align: center;
+
+            border-radius: 17px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255, 255, 255, 0.06),
+                    rgba(255, 255, 255, 0.025)
+                );
+
+            border: 1px solid rgba(255, 255, 255, 0.08);
+
+            transition:
+                transform 0.3s ease,
+                border-color 0.3s ease;
+        }
+
+        .about-highlights > div:hover {
+            transform: translateY(-5px);
+            border-color: rgba(59, 130, 246, 0.28);
+        }
+
+        .about-highlights h2 {
+            margin: 0 0 6px;
+
+            font-size: 25px;
+            font-weight: 800;
+
+            background: linear-gradient(
+                90deg,
+                var(--primary),
+                var(--secondary),
+                var(--accent)
+            );
+
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .about-highlights p {
+            margin: 0;
+            font-size: 11px;
+            color: var(--text-light);
+            line-height: 1.4;
+        }
+
+        /* Buttons */
+
+        .about-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 13px;
+        }
+
+        .about-buttons a {
+            text-decoration: none;
+        }
+
+        /* Light Theme */
+
+        body.light-theme .about-image {
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(59, 130, 246, 0.10),
+                    rgba(255, 255, 255, 0.75)
+                );
+
+            border-color: rgba(15, 23, 42, 0.08);
+        }
+
+        body.light-theme .about-image::before,
+        body.light-theme .about-image::after {
+            background: rgba(255, 255, 255, 0.88);
+            color: #0f172a;
+            border-color: rgba(15, 23, 42, 0.08);
+        }
+
+        body.light-theme .about-info > div,
+        body.light-theme .about-highlights > div {
+            background: rgba(255, 255, 255, 0.72);
+            border-color: rgba(15, 23, 42, 0.08);
+        }
+
+        /* Responsive */
+
+        @media (max-width: 1050px) {
+
+            .about-wrapper {
+                grid-template-columns: 320px minmax(0, 1fr);
+                gap: 35px;
+            }
+
+            .about-highlights {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 800px) {
+
+            .about-wrapper {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+
+            .about-image {
+                max-width: 430px;
+                width: 100%;
+                margin: 0 auto;
+            }
+
+            .about-content {
+                text-align: center;
+            }
+
+            .about-content > p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .about-buttons {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 560px) {
+
+            .about .section-title {
+                margin-bottom: 40px;
+            }
+
+            .about-info {
+                grid-template-columns: 1fr;
+            }
+
+            .about-highlights {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .about-image::before {
+                top: 22px;
+                left: 22px;
+            }
+
+            .about-image::after {
+                left: 22px;
+                bottom: 22px;
+                font-size: 8px;
+            }
+        }
+
+        @media (max-width: 400px) {
+
+            .about-highlights {
+                gap: 8px;
+            }
+
+            .about-highlights > div {
+                padding: 16px 8px;
+            }
+
+            .about-highlights h2 {
+                font-size: 21px;
+            }
+
+            .about-highlights p {
+                font-size: 10px;
+            }
+        }
+
+        /* Reduced Motion */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            .about-image,
+            .about-info > div,
+            .about-highlights > div {
+                transition: none;
+            }
+        }
+    </style>
+
     <div class="container">
 
         <!-- Section Title -->
@@ -22,25 +465,30 @@
 
         <div class="about-wrapper">
 
-            <!-- Left -->
+            <!-- Profile -->
             <div class="about-image glass">
 
                 <img
                     src="assets/images/profile.png"
-                    alt="Lalan Kumar">
+                    alt="Lalan Kumar"
+                    loading="lazy">
 
             </div>
 
-            <!-- Right -->
+            <!-- Content -->
             <div class="about-content">
 
-                <h3>Hello, I'm Lalan Kumar 👋</h3>
+                <h3>
+                    Hello, I'm Lalan Kumar 👋
+                </h3>
 
                 <p>
-                    I am an Electrical Engineering Diploma student with a
-                    strong interest in Web Development, Artificial Intelligence,
-                    UI/UX Design and Modern Technologies. I enjoy creating
-                    beautiful, fast and user-friendly digital experiences.
+                    I am an Electrical Engineering Diploma student with
+                    a strong interest in Web Development, Artificial
+                    Intelligence, UI/UX Design and Modern Technologies.
+                    I enjoy creating beautiful, fast and user-friendly
+                    digital experiences while continuously learning
+                    new technologies.
                 </p>
 
                 <!-- Personal Information -->
@@ -54,7 +502,7 @@
 
                     <div>
                         <strong>Profession</strong>
-                        <span>Student & Web Developer</span>
+                        <span>Student &amp; Web Developer</span>
                     </div>
 
                     <div>
@@ -84,35 +532,23 @@
                 <div class="about-highlights">
 
                     <div class="glass">
-
                         <h2>20+</h2>
-
                         <p>Projects</p>
-
                     </div>
 
                     <div class="glass">
-
                         <h2>15+</h2>
-
                         <p>Certificates</p>
-
                     </div>
 
                     <div class="glass">
-
                         <h2>2+</h2>
-
                         <p>Years Learning</p>
-
                     </div>
 
                     <div class="glass">
-
                         <h2>100%</h2>
-
                         <p>Dedication</p>
-
                     </div>
 
                 </div>
@@ -124,17 +560,13 @@
                     <a
                         href="#contact"
                         class="btn-primary">
-
                         Contact Me
-
                     </a>
 
                     <a
                         href="#projects"
                         class="btn-secondary">
-
                         View Projects
-
                     </a>
 
                 </div>
@@ -145,4 +577,4 @@
 
     </div>
 
-</section>
+         </section>
