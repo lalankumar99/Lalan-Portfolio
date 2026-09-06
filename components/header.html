@@ -1,18 +1,23 @@
 <!-- ==========================================
-     PREMIUM HEADER
+     LALAN KUMAR - PREMIUM HEADER
 ========================================== -->
 
-<header class="header" id="header">
+<header
+    class="header"
+    id="header">
 
     <div class="container">
 
         <div class="header-wrapper">
 
-            <!-- ==========================
+            <!-- ==========================================
                  LOGO
-            =========================== -->
+            =========================================== -->
 
-            <a href="#hero" class="logo">
+            <a
+                href="#hero"
+                class="logo"
+                aria-label="Lalan Kumar Home">
 
                 <img
                     src="assets/images/logo.png"
@@ -23,22 +28,29 @@
 
                     <h2>Lalan Kumar</h2>
 
-                    <span>Premium Portfolio</span>
+                    <span>
+                        Premium Portfolio
+                    </span>
 
                 </div>
 
             </a>
 
-            <!-- ==========================
-                 DESKTOP NAVIGATION
-            =========================== -->
 
-            <nav class="desktop-nav">
+            <!-- ==========================================
+                 DESKTOP NAVIGATION
+            =========================================== -->
+
+            <nav
+                class="desktop-nav"
+                aria-label="Main Navigation">
 
                 <ul>
 
                     <li>
-                        <a href="#hero" class="active">
+                        <a
+                            href="#hero"
+                            class="active">
                             Home
                         </a>
                     </li>
@@ -77,22 +89,29 @@
 
             </nav>
 
-            <!-- ==========================
-                 RIGHT ACTIONS
-            =========================== -->
+
+            <!-- ==========================================
+                 HEADER ACTIONS
+            =========================================== -->
 
             <div class="header-actions">
 
-                <!-- Theme -->
+                <!-- Theme Toggle -->
 
                 <button
+                    type="button"
                     id="themeToggle"
                     class="icon-btn"
-                    aria-label="Theme">
+                    aria-label="Toggle Theme"
+                    aria-pressed="false">
 
-                    <i class="fas fa-moon"></i>
+                    <i
+                        class="fas fa-moon"
+                        aria-hidden="true">
+                    </i>
 
                 </button>
+
 
                 <!-- Resume -->
 
@@ -104,12 +123,16 @@
 
                 </a>
 
+
                 <!-- Mobile Menu -->
 
                 <button
+                    type="button"
                     id="menuBtn"
                     class="menu-btn"
-                    aria-label="Menu">
+                    aria-label="Open Navigation Menu"
+                    aria-expanded="false"
+                    aria-controls="sidebar">
 
                     <span></span>
                     <span></span>
@@ -123,4 +146,4 @@
 
     </div>
 
-</header>
+     </header>
