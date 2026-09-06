@@ -103,34 +103,26 @@
     <!-- ==========================================
          FONT AWESOME
     =========================================== -->
-    <link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
     <!-- ==========================================
-         CSS FILES
+         MAIN CSS
     =========================================== -->
 
     <link
         rel="stylesheet"
         href="css/style.css">
 
-    <link
-         rel="stylesheet" 
-         href="css/header.css">
-    <link 
-         rel="stylesheet" 
-         href="css/sidebar.css">
-     <link 
-         rel="stylesheet" 
-         href="css/hero.css">
+    <!-- ==========================================
+         COMPONENT / SECTION CSS
+    =========================================== -->
 
     <link
         rel="stylesheet"
-        href="css/responsive.css">
-
-    <link
-        rel="stylesheet"
-        href="css/animation.css">
+        href="css/header.css">
 
     <link
         rel="stylesheet"
@@ -172,18 +164,17 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         rel="stylesheet"
         href="css/contact.css">
 
-    <link
-        rel="stylesheet"
-        href="css/footer.css">
-
 </head>
 
+
 <body>
+
     <!-- ==========================================
-         LOADER
+         PAGE LOADER
     =========================================== -->
 
     <div id="loader"></div>
+
 
     <!-- ==========================================
          SCROLL PROGRESS
@@ -191,11 +182,13 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
 
     <div id="scroll-progress"></div>
 
+
     <!-- ==========================================
          CUSTOM CURSOR
     =========================================== -->
 
     <div id="cursor"></div>
+
 
     <!-- ==========================================
          PARTICLE BACKGROUND
@@ -203,17 +196,22 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
 
     <canvas id="particles"></canvas>
 
+
     <!-- ==========================================
-         HEADER (Loaded by app.js)
+         HEADER
+         Loaded by app.js
     =========================================== -->
 
     <div id="header"></div>
 
+
     <!-- ==========================================
-         SIDEBAR (Loaded by app.js)
+         SIDEBAR
+         Loaded by app.js
     =========================================== -->
 
     <div id="sidebar"></div>
+
 
     <!-- ==========================================
          MAIN CONTENT
@@ -221,75 +219,84 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
 
     <main id="main-content">
 
+        <!-- HERO -->
         <div id="hero"></div>
 
+        <!-- ABOUT -->
         <div id="about"></div>
 
+        <!-- SKILLS -->
         <div id="skills"></div>
 
+        <!-- EDUCATION -->
         <div id="education"></div>
 
+        <!-- EXPERIENCE -->
         <div id="experience"></div>
 
+        <!-- PROJECTS -->
         <div id="projects"></div>
 
+        <!-- GALLERY -->
         <div id="gallery"></div>
 
+        <!-- CERTIFICATES -->
         <div id="certificates"></div>
 
+        <!-- RESUME -->
         <div id="resume"></div>
 
+        <!-- BLOG -->
         <div id="blog"></div>
 
+        <!-- DASHBOARD -->
         <div id="dashboard"></div>
 
+        <!-- CONTACT -->
         <div id="contact"></div>
 
     </main>
 
+
     <!-- ==========================================
-         FOOTER (Loaded by app.js)
+         FOOTER
+         Loaded by app.js
     =========================================== -->
 
     <div id="footer"></div>
 
+
     <!-- ==========================================
-         BACK TO TOP BUTTON
+         BACK TO TOP
     =========================================== -->
 
     <button
         id="backToTop"
         class="back-top"
+        type="button"
         aria-label="Back to Top">
 
         <i class="fas fa-arrow-up"></i>
 
     </button>
+
+
     <!-- ==========================================
-         JAVASCRIPT FILES
+         JAVASCRIPT
     =========================================== -->
 
+    <!-- Main Application -->
     <script src="js/app.js"></script>
 
+    <!-- Navigation -->
     <script src="js/navbar.js"></script>
 
+    <!-- Theme -->
     <script src="js/theme.js"></script>
 
-    <script src="js/search.js"></script>
-
-    <script src="js/gallery.js"></script>
-
-    <script src="js/pdf-viewer.js"></script>
-
+    <!-- Scroll -->
     <script src="js/scroll.js"></script>
 
-    <script src="js/typing.js"></script>
-
-    <script src="js/particles.js"></script>
-
-    <script src="js/filter.js"></script>
-
-    <script src="js/main.js"></script>
 
     <!-- ==========================================
          SERVICE WORKER
@@ -299,19 +306,21 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
 
         if ("serviceWorker" in navigator) {
 
-            window.addEventListener("load", () => {
+            window.addEventListener("load", function () {
 
                 navigator.serviceWorker
                     .register("./sw.js")
-                    .then(() => {
+                    .then(function () {
 
-                        console.log("Service Worker Registered");
+                        console.log(
+                            "Service Worker Registered Successfully"
+                        );
 
                     })
-                    .catch(error => {
+                    .catch(function (error) {
 
                         console.error(
-                            "Service Worker Error:",
+                            "Service Worker Registration Failed:",
                             error
                         );
 
@@ -325,4 +334,4 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
 
 </body>
 
-</html>
+                               </html>
