@@ -1,8 +1,8 @@
 // =============================================
 // LALAN KUMAR - PREMIUM PORTFOLIO
-// Component Loader v2.0
-// Part 1
+// Component Loader v3.0
 // =============================================
+
 
 // =============================================
 // COMPONENT PATHS
@@ -42,6 +42,7 @@ const components = {
 
 };
 
+
 // =============================================
 // LOAD SINGLE COMPONENT
 // =============================================
@@ -50,107 +51,275 @@ async function loadComponent(id, file) {
 
     const element = document.getElementById(id);
 
+    // Element does not exist
     if (!element) {
 
-        console.warn(`Missing Element : ${id}`);
+        console.warn(
+            `[Component] Missing element: #${id}`
+        );
 
-        return;
+        return false;
 
     }
 
+
     try {
 
-        const response = await fetch(file);
+        const response = await fetch(file, {
+            cache: "no-cache"
+        });
+
 
         if (!response.ok) {
 
             throw new Error(
-                `Failed to load ${file}`
+                `HTTP ${response.status} - ${file}`
             );
 
         }
 
-        element.innerHTML =
-            await response.text();
+
+        const html = await response.text();
+
+
+        if (!html.trim()) {
+
+            throw new Error(
+                `Empty component: ${file}`
+            );
+
+        }
+
+
+        element.innerHTML = html;
+
+
+        console.log(
+            `[Component] Loaded: ${file}`
+        );
+
+
+        return true;
 
     }
 
+
     catch (error) {
 
-        console.error(error);
+        console.error(
+            `[Component] Failed: ${file}`,
+            error
+        );
+
 
         element.innerHTML = `
             <div class="component-error">
-                Failed to load :
-                ${id}
+                <strong>Component failed to load</strong>
+                <br>
+                ${file}
             </div>
         `;
+
+
+        return false;
 
     }
 
 }
+
+
 // =============================================
 // LOAD ALL COMPONENTS
 // =============================================
 
 async function loadAllComponents() {
 
-    const tasks = Object.entries(components).map(
+    const entries = Object.entries(components);
 
-        ([id, file]) => loadComponent(id, file)
+
+    const results = await Promise.all(
+
+        entries.map(
+            ([id, file]) =>
+                loadComponent(id, file)
+        )
 
     );
 
-    await Promise.all(tasks);
 
-    console.log(
-        "All Components Loaded Successfully"
+    const failed = results.filter(
+        result => result === false
+    ).length;
+
+
+    if (failed === 0) {
+
+        console.log(
+            "[App] All components loaded successfully."
+        );
+
+    } else {
+
+        console.warn(
+            `[App] ${failed} component(s) failed to load.`
+        );
+
+    }
+
+
+    // Tell other JavaScript files that
+    // components are now available.
+
+    document.dispatchEvent(
+        new CustomEvent("componentsLoaded", {
+            detail: {
+                total: entries.length,
+                failed: failed
+            }
+        })
     );
+
+
+    return {
+        total: entries.length,
+        failed: failed
+    };
 
 }
+
 
 // =============================================
 // INITIALIZE APP
 // =============================================
 
-document.addEventListener(
+async function initializeApp() {
 
-    "DOMContentLoaded",
+    console.log(
+        "[App] Initializing portfolio..."
+    );
 
-    async () => {
 
+    const result =
         await loadAllComponents();
 
-        document.body.classList.add("loaded");
+
+    // Mark body as loaded
+
+    document.body.classList.add(
+        "loaded"
+    );
+
+
+    // Hide page loader ONLY after
+    // components have finished loading.
+
+    hideLoader();
+
+
+    console.log(
+        `[App] Initialization complete. ${result.total - result.failed}/${result.total} components loaded.`
+    );
+
+}
+
+
+// =============================================
+// HIDE LOADER
+// =============================================
+
+function hideLoader() {
+
+    const loader =
+        document.getElementById("loader");
+
+
+    if (!loader) {
+
+        return;
 
     }
 
-);
 
-// =============================================
-// WINDOW LOAD
-// =============================================
+    loader.classList.add("hide");
 
-window.addEventListener(
 
-    "load",
-
-    () => {
-
-        const loader = document.getElementById("loader");
+    setTimeout(() => {
 
         if (loader) {
 
-            loader.classList.add("hide");
-
-            setTimeout(() => {
-
-                loader.remove();
-
-            }, 500);
+            loader.remove();
 
         }
 
-    }
+    }, 500);
 
+}
+
+
+// =============================================
+// DOM READY
+// =============================================
+
+if (document.readyState === "loading") {
+
+    document.addEventListener(
+        "DOMContentLoaded",
+        initializeApp,
+        { once: true }
+    );
+
+} else {
+
+    initializeApp();
+
+}
+
+
+// =============================================
+// COMPONENTS LOADED EVENT
+// =============================================
+//
+// Other JS files can use:
+//
+// document.addEventListener(
+//     "componentsLoaded",
+//     () => {
+//         // code here
+//     }
+// );
+//
+// =============================================
+
+
+// =============================================
+// GLOBAL ERROR HANDLER
+// =============================================
+
+window.addEventListener(
+    "error",
+    (event) => {
+
+        console.error(
+            "[Global Error]",
+            event.error || event.message
+        );
+
+    }
+);
+
+
+// =============================================
+// UNHANDLED PROMISE ERROR
+// =============================================
+
+window.addEventListener(
+    "unhandledrejection",
+    (event) => {
+
+        console.error(
+            "[Unhandled Promise Rejection]",
+            event.reason
+        );
+
+    }
 );
