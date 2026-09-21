@@ -1,5 +1,5 @@
 # =====================================================
-# Lalan Kumar - Premium Portfolio
+# Lalan Kumar - Electrical Engg. - Portfolio 
 # File : robots.txt
 # Description:
 # Controls how search engine crawlers access this website.
