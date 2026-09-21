@@ -1,5 +1,5 @@
 // =============================================
-// LALAN KUMAR - PREMIUM PORTFOLIO
+// LALAN KUMAR - ELECTRICAL ENGG. - PORTFOLIO 
 // Component Loader v3.0
 // =============================================
 
