@@ -1,6 +1,6 @@
 /* ==========================================
    SERVICE WORKER
-   Lalan Kumar - Premium Portfolio
+   Lalan Kumar - Electrical Engg. - Portfolio 
 ========================================== */
 
 const CACHE_NAME = "portfolio-v1.0.0";
