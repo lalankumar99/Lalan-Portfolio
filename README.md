@@ -1,4 +1,4 @@
-# 🚀 Lalan Kumar - Premium Personal Portfolio
+# 🚀 Lalan Kumar - Electrical Engg. - Portfolio 
 
 > A modern, premium, responsive, and feature-rich personal portfolio built to showcase my skills, projects, achievements, certificates, resume, and professional journey.
 
