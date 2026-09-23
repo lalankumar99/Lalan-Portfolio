@@ -1,325 +1,285 @@
-// =============================================
-// LALAN KUMAR - ELECTRICAL ENGG. - PORTFOLIO 
-// Component Loader v3.0
-// =============================================
+/* js/app.js */
+
+document.addEventListener("DOMContentLoaded", () => {
+    const body = document.body;
+
+    const siteHeader = document.getElementById("site-header");
+    const menuToggle = document.getElementById("menu-toggle");
+    const mainNavigation = document.getElementById("main-navigation");
+
+    const sidebar = document.getElementById("site-sidebar");
+    const sidebarOverlay = document.getElementById("sidebar-overlay");
+    const sidebarClose = document.getElementById("sidebar-close");
+
+    const contactForm = document.getElementById("contact-form");
+    const footerYear = document.getElementById("footer-year");
 
 
-// =============================================
-// COMPONENT PATHS
-// =============================================
+    const setHeaderState = () => {
+        if (!siteHeader) return;
 
-const components = {
-
-    header: "components/header.html",
-
-    sidebar: "components/sidebar.html",
-
-    hero: "components/hero.html",
-
-    about: "components/about.html",
-
-    skills: "components/skills.html",
-
-    education: "components/education.html",
-
-    experience: "components/experience.html",
-
-    projects: "components/projects.html",
-
-    gallery: "components/gallery.html",
-
-    certificates: "components/certificates.html",
-
-    resume: "components/resume.html",
-
-    blog: "components/blog.html",
-
-    dashboard: "components/dashboard.html",
-
-    contact: "components/contact.html",
-
-    footer: "components/footer.html"
-
-};
-
-
-// =============================================
-// LOAD SINGLE COMPONENT
-// =============================================
-
-async function loadComponent(id, file) {
-
-    const element = document.getElementById(id);
-
-    // Element does not exist
-    if (!element) {
-
-        console.warn(
-            `[Component] Missing element: #${id}`
+        siteHeader.classList.toggle(
+            "is-scrolled",
+            window.scrollY > 30
         );
-
-        return false;
-
-    }
-
-
-    try {
-
-        const response = await fetch(file, {
-            cache: "no-cache"
-        });
-
-
-        if (!response.ok) {
-
-            throw new Error(
-                `HTTP ${response.status} - ${file}`
-            );
-
-        }
-
-
-        const html = await response.text();
-
-
-        if (!html.trim()) {
-
-            throw new Error(
-                `Empty component: ${file}`
-            );
-
-        }
-
-
-        element.innerHTML = html;
-
-
-        console.log(
-            `[Component] Loaded: ${file}`
-        );
-
-
-        return true;
-
-    }
-
-
-    catch (error) {
-
-        console.error(
-            `[Component] Failed: ${file}`,
-            error
-        );
-
-
-        element.innerHTML = `
-            <div class="component-error">
-                <strong>Component failed to load</strong>
-                <br>
-                ${file}
-            </div>
-        `;
-
-
-        return false;
-
-    }
-
-}
-
-
-// =============================================
-// LOAD ALL COMPONENTS
-// =============================================
-
-async function loadAllComponents() {
-
-    const entries = Object.entries(components);
-
-
-    const results = await Promise.all(
-
-        entries.map(
-            ([id, file]) =>
-                loadComponent(id, file)
-        )
-
-    );
-
-
-    const failed = results.filter(
-        result => result === false
-    ).length;
-
-
-    if (failed === 0) {
-
-        console.log(
-            "[App] All components loaded successfully."
-        );
-
-    } else {
-
-        console.warn(
-            `[App] ${failed} component(s) failed to load.`
-        );
-
-    }
-
-
-    // Tell other JavaScript files that
-    // components are now available.
-
-    document.dispatchEvent(
-        new CustomEvent("componentsLoaded", {
-            detail: {
-                total: entries.length,
-                failed: failed
-            }
-        })
-    );
-
-
-    return {
-        total: entries.length,
-        failed: failed
     };
 
-}
+
+    const closeNavigation = () => {
+        if (!menuToggle || !mainNavigation) return;
+
+        menuToggle.classList.remove("is-active");
+        menuToggle.setAttribute("aria-expanded", "false");
+        mainNavigation.classList.remove("is-open");
+        body.classList.remove("nav-open");
+    };
 
 
-// =============================================
-// INITIALIZE APP
-// =============================================
+    const openSidebar = () => {
+        if (!sidebar || !sidebarOverlay) return;
 
-async function initializeApp() {
+        sidebar.classList.add("is-open");
+        sidebarOverlay.classList.add("is-visible");
+        body.classList.add("sidebar-open");
 
-    console.log(
-        "[App] Initializing portfolio..."
-    );
-
-
-    const result =
-        await loadAllComponents();
+        sidebarOverlay.setAttribute("aria-hidden", "false");
+    };
 
 
-    // Mark body as loaded
+    const closeSidebar = () => {
+        if (!sidebar || !sidebarOverlay) return;
 
-    document.body.classList.add(
-        "loaded"
-    );
+        sidebar.classList.remove("is-open");
+        sidebarOverlay.classList.remove("is-visible");
+        body.classList.remove("sidebar-open");
 
-
-    // Hide page loader ONLY after
-    // components have finished loading.
-
-    hideLoader();
+        sidebarOverlay.setAttribute("aria-hidden", "true");
+    };
 
 
-    console.log(
-        `[App] Initialization complete. ${result.total - result.failed}/${result.total} components loaded.`
-    );
+    const updateNavigation = () => {
+        const sections = document.querySelectorAll("section[id]");
+        const navigationLinks = document.querySelectorAll(
+            ".nav-link, .sidebar-link"
+        );
 
-}
+        if (!sections.length || !navigationLinks.length) return;
+
+        let currentSection = "";
+
+        sections.forEach((section) => {
+            const sectionTop =
+                section.getBoundingClientRect().top +
+                window.scrollY -
+                180;
+
+            if (window.scrollY >= sectionTop) {
+                currentSection = section.id;
+            }
+        });
+
+        navigationLinks.forEach((link) => {
+            const href = link.getAttribute("href");
+
+            link.classList.toggle(
+                "active",
+                href === `#${currentSection}`
+            );
+        });
+    };
 
 
-// =============================================
-// HIDE LOADER
-// =============================================
+    const handleAnchorNavigation = (event) => {
+        const link = event.currentTarget;
+        const targetId = link.getAttribute("href");
 
-function hideLoader() {
-
-    const loader =
-        document.getElementById("loader");
-
-
-    if (!loader) {
-
-        return;
-
-    }
-
-
-    loader.classList.add("hide");
-
-
-    setTimeout(() => {
-
-        if (loader) {
-
-            loader.remove();
-
+        if (
+            !targetId ||
+            targetId === "#" ||
+            !targetId.startsWith("#")
+        ) {
+            return;
         }
 
-    }, 500);
+        const target = document.querySelector(targetId);
 
-}
+        if (!target) return;
+
+        event.preventDefault();
+
+        const headerHeight =
+            siteHeader?.offsetHeight || 0;
+
+        const targetPosition =
+            target.getBoundingClientRect().top +
+            window.scrollY -
+            headerHeight -
+            15;
+
+        window.scrollTo({
+            top: Math.max(targetPosition, 0),
+            behavior: "smooth"
+        });
+
+        closeNavigation();
+        closeSidebar();
+    };
 
 
-// =============================================
-// DOM READY
-// =============================================
+    const setupNavigationLinks = () => {
+        const links = document.querySelectorAll(
+            'a[href^="#"]'
+        );
 
-if (document.readyState === "loading") {
+        links.forEach((link) => {
+            link.addEventListener(
+                "click",
+                handleAnchorNavigation
+            );
+        });
+    };
 
-    document.addEventListener(
-        "DOMContentLoaded",
-        initializeApp,
-        { once: true }
+
+    const setupMobileNavigation = () => {
+        if (!menuToggle || !mainNavigation) return;
+
+        menuToggle.addEventListener("click", () => {
+            const isOpen =
+                mainNavigation.classList.toggle("is-open");
+
+            menuToggle.classList.toggle(
+                "is-active",
+                isOpen
+            );
+
+            menuToggle.setAttribute(
+                "aria-expanded",
+                String(isOpen)
+            );
+
+            body.classList.toggle(
+                "nav-open",
+                isOpen
+            );
+        });
+
+        document.addEventListener("click", (event) => {
+            if (!mainNavigation.classList.contains("is-open")) {
+                return;
+            }
+
+            const clickedInside =
+                mainNavigation.contains(event.target) ||
+                menuToggle.contains(event.target);
+
+            if (!clickedInside) {
+                closeNavigation();
+            }
+        });
+    };
+
+
+    const setupSidebar = () => {
+        if (!sidebar) return;
+
+        if (sidebarOverlay) {
+            sidebarOverlay.addEventListener(
+                "click",
+                closeSidebar
+            );
+        }
+
+        if (sidebarClose) {
+            sidebarClose.addEventListener(
+                "click",
+                closeSidebar
+            );
+        }
+
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "Escape") {
+                closeNavigation();
+                closeSidebar();
+            }
+        });
+    };
+
+
+    const setupContactForm = () => {
+        if (!contactForm) return;
+
+        contactForm.addEventListener("submit", (event) => {
+            event.preventDefault();
+
+            const submitButton =
+                contactForm.querySelector(
+                    ".contact-submit"
+                );
+
+            if (!submitButton) return;
+
+            const buttonText =
+                submitButton.querySelector("span");
+
+            const originalText =
+                buttonText?.textContent ||
+                "Send Message";
+
+            if (buttonText) {
+                buttonText.textContent = "Message Ready";
+            }
+
+            submitButton.classList.add("is-sent");
+
+            window.setTimeout(() => {
+                if (buttonText) {
+                    buttonText.textContent = originalText;
+                }
+
+                submitButton.classList.remove(
+                    "is-sent"
+                );
+            }, 2200);
+        });
+    };
+
+
+    const setupFooterYear = () => {
+        if (!footerYear) return;
+
+        footerYear.textContent =
+            new Date().getFullYear();
+    };
+
+
+    const handleResize = () => {
+        if (window.innerWidth > 1000) {
+            closeNavigation();
+        }
+    };
+
+
+    setHeaderState();
+    updateNavigation();
+
+    setupMobileNavigation();
+    setupSidebar();
+    setupNavigationLinks();
+    setupContactForm();
+    setupFooterYear();
+
+    window.addEventListener(
+        "scroll",
+        () => {
+            setHeaderState();
+            updateNavigation();
+        },
+        { passive: true }
     );
 
-} else {
-
-    initializeApp();
-
-}
-
-
-// =============================================
-// COMPONENTS LOADED EVENT
-// =============================================
-//
-// Other JS files can use:
-//
-// document.addEventListener(
-//     "componentsLoaded",
-//     () => {
-//         // code here
-//     }
-// );
-//
-// =============================================
-
-
-// =============================================
-// GLOBAL ERROR HANDLER
-// =============================================
-
-window.addEventListener(
-    "error",
-    (event) => {
-
-        console.error(
-            "[Global Error]",
-            event.error || event.message
-        );
-
-    }
-);
-
-
-// =============================================
-// UNHANDLED PROMISE ERROR
-// =============================================
-
-window.addEventListener(
-    "unhandledrejection",
-    (event) => {
-
-        console.error(
-            "[Unhandled Promise Rejection]",
-            event.reason
-        );
-
-    }
-);
+    window.addEventListener(
+        "resize",
+        handleResize,
+        { passive: true }
+    );
+});
