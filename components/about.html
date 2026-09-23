@@ -1,128 +1,265 @@
-<!-- =========================================
-     About Section
-========================================= -->
+<!-- components/about.html -->
 
-<section id="about" class="about section">
+<section class="about-section section" id="about" aria-labelledby="about-title">
 
     <div class="container">
 
-        <!-- Section Title -->
-        <div class="section-title">
+        <div class="section-header about-section-header">
 
-            <span>ABOUT ME</span>
+            <span class="section-label">
+                About Me
+            </span>
 
-            <h2>Know More About Me</h2>
+            <h2 id="about-title">
+                Engineering Mindset.
+                <span class="gradient-text">
+                    Technology Driven.
+                </span>
+            </h2>
 
             <p>
-                Learn about my journey, education, skills, goals,
-                achievements and passion for technology.
+                A quick introduction to my background, interests,
+                learning journey and the way I approach technology.
             </p>
 
         </div>
 
-        <!-- About Wrapper -->
-        <div class="about-wrapper">
+        <div class="about-layout">
 
-            <!-- Profile Image -->
-            <div class="about-image glass">
+            <div class="about-visual">
 
-                <img
-                    src="assets/images/profile.png"
-                    alt="Lalan Kumar"
-                    loading="lazy">
+                <div class="about-image-card">
+
+                    <div class="about-image-glow"></div>
+
+                    <div class="about-image-wrapper">
+
+                        <img
+                            src="assets/images/profile.png"
+                            alt="Lalan Kumar"
+                            class="about-image"
+                            loading="lazy"
+                        >
+
+                    </div>
+
+                    <div class="about-image-badge">
+
+                        <span class="about-badge-icon">⚡</span>
+
+                        <span>
+                            <strong>Electrical</strong>
+                            <small>Engineering</small>
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <div class="about-decoration about-decoration-one"></div>
+                <div class="about-decoration about-decoration-two"></div>
 
             </div>
 
-            <!-- About Content -->
             <div class="about-content">
 
-                <h3>Hello, I'm Lalan Kumar 👋</h3>
+                <span class="about-intro">
+                    Hello, I'm Lalan Kumar.
+                </span>
 
-                <p>
-                    I am an Electrical Engineering Diploma student with
-                    a strong interest in Web Development, Artificial
-                    Intelligence, UI/UX Design and Modern Technologies.
-                    I enjoy creating beautiful, fast and user-friendly
-                    digital experiences while continuously learning
-                    new technologies.
-                </p>
+                <h3>
+                    Student, Creator &amp;
+                    <span class="gradient-text">
+                        Technology Enthusiast
+                    </span>
+                </h3>
 
-                <!-- Personal Information -->
-                <div class="about-info">
+                <div class="about-text">
 
-                    <div>
-                        <strong>Name</strong>
-                        <span>Lalan Kumar</span>
-                    </div>
+                    <p>
+                        I am a Diploma Engineering student with a strong
+                        interest in electrical engineering, technology,
+                        web development and digital projects.
+                    </p>
 
-                    <div>
-                        <strong>Profession</strong>
-                        <span>Student &amp; Web Developer</span>
-                    </div>
+                    <p>
+                        Alongside my engineering studies, I enjoy exploring
+                        modern technologies and turning ideas into practical
+                        digital experiences. I believe that consistent
+                        learning, experimentation and real-world projects
+                        are important parts of becoming a better engineer.
+                    </p>
 
-                    <div>
-                        <strong>Education</strong>
-                        <span>Diploma in Electrical Engineering</span>
-                    </div>
-
-                    <div>
-                        <strong>Country</strong>
-                        <span>India</span>
-                    </div>
-
-                    <div>
-                        <strong>Email</strong>
-                        <span>lalankumarbnk17@gmail.com</span>
-                    </div>
-
-                    <div>
-                        <strong>Languages</strong>
-                        <span>Hindi, English</span>
-                    </div>
+                    <p>
+                        This portfolio represents my learning journey,
+                        technical interests, projects, achievements and
+                        the work I continue to build over time.
+                    </p>
 
                 </div>
 
-                <!-- Highlights -->
                 <div class="about-highlights">
 
-                    <div class="glass">
-                        <h2>20+</h2>
-                        <p>Projects</p>
+                    <div class="about-highlight">
+
+                        <span class="about-highlight-icon">
+                            ⚡
+                        </span>
+
+                        <div>
+                            <strong>
+                                Electrical Engineering
+                            </strong>
+
+                            <span>
+                                Core technical foundation
+                            </span>
+                        </div>
+
                     </div>
 
-                    <div class="glass">
-                        <h2>15+</h2>
-                        <p>Certificates</p>
+                    <div class="about-highlight">
+
+                        <span class="about-highlight-icon">
+                            &lt;/&gt;
+                        </span>
+
+                        <div>
+                            <strong>
+                                Web &amp; App Development
+                            </strong>
+
+                            <span>
+                                Building digital projects
+                            </span>
+                        </div>
+
                     </div>
 
-                    <div class="glass">
-                        <h2>2+</h2>
-                        <p>Years Learning</p>
+                    <div class="about-highlight">
+
+                        <span class="about-highlight-icon">
+                            ◈
+                        </span>
+
+                        <div>
+                            <strong>
+                                Continuous Learning
+                            </strong>
+
+                            <span>
+                                Exploring new technologies
+                            </span>
+                        </div>
+
                     </div>
 
-                    <div class="glass">
-                        <h2>100%</h2>
-                        <p>Dedication</p>
+                    <div class="about-highlight">
+
+                        <span class="about-highlight-icon">
+                            ↗
+                        </span>
+
+                        <div>
+                            <strong>
+                                Practical Projects
+                            </strong>
+
+                            <span>
+                                Learning through building
+                            </span>
+                        </div>
+
                     </div>
 
                 </div>
 
-                <!-- Buttons -->
-                <div class="about-buttons">
+                <div class="about-actions">
+
+                    <a
+                        href="#education"
+                        class="btn btn-primary"
+                    >
+                        <span>My Journey</span>
+                        <span aria-hidden="true">↗</span>
+                    </a>
 
                     <a
                         href="#contact"
-                        class="btn-primary">
-                        Contact Me
-                    </a>
-
-                    <a
-                        href="#projects"
-                        class="btn-secondary">
-                        View Projects
+                        class="btn btn-secondary"
+                    >
+                        Get in Touch
                     </a>
 
                 </div>
+
+            </div>
+
+        </div>
+
+        <div class="about-stats">
+
+            <div class="about-stat-card">
+
+                <span class="about-stat-number">
+                    01
+                </span>
+
+                <span class="about-stat-title">
+                    Engineering
+                </span>
+
+                <span class="about-stat-description">
+                    Technical foundation
+                </span>
+
+            </div>
+
+            <div class="about-stat-card">
+
+                <span class="about-stat-number">
+                    02
+                </span>
+
+                <span class="about-stat-title">
+                    Projects
+                </span>
+
+                <span class="about-stat-description">
+                    Ideas turned into work
+                </span>
+
+            </div>
+
+            <div class="about-stat-card">
+
+                <span class="about-stat-number">
+                    03
+                </span>
+
+                <span class="about-stat-title">
+                    Technology
+                </span>
+
+                <span class="about-stat-description">
+                    Modern tools &amp; learning
+                </span>
+
+            </div>
+
+            <div class="about-stat-card">
+
+                <span class="about-stat-number">
+                    04
+                </span>
+
+                <span class="about-stat-title">
+                    Growth
+                </span>
+
+                <span class="about-stat-description">
+                    Continuous improvement
+                </span>
 
             </div>
 
@@ -130,4 +267,4 @@
 
     </div>
 
-                         </section>
+</section>
