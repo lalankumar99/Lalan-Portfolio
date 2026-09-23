@@ -1,141 +1,222 @@
-/* ==========================================
-   LALAN KUMAR - ELECTRICAL ENGG. - PORTFOLIO 
-   SCROLL FUNCTIONS
-========================================== */
+/* js/scroll.js */
 
-"use strict";
+document.addEventListener("DOMContentLoaded", () => {
+    const header = document.getElementById("site-header");
+    const progressBar = document.getElementById(
+        "header-progress-bar"
+    );
 
+    const sections = Array.from(
+        document.querySelectorAll("section[id]")
+    );
 
-// ==========================================
-// SCROLL CONTROLLER
-// ==========================================
+    const navigationLinks = Array.from(
+        document.querySelectorAll(
+            '.nav-link[href^="#"], .sidebar-link[href^="#"]'
+        )
+    );
 
-(function () {
-
-
-    // ==========================================
-    // ELEMENTS
-    // ==========================================
-
-    const progress =
-        document.getElementById("scroll-progress");
-
-    const backToTop =
-        document.getElementById("backToTop");
+    const revealElements = document.querySelectorAll(
+        ".reveal, .reveal-up, .reveal-left, .reveal-right"
+    );
 
 
-    // ==========================================
-    // UPDATE SCROLL UI
-    // ==========================================
+    /* ----------------------------------------
+       Header Scroll State
+    ---------------------------------------- */
 
-    function updateScrollUI() {
+    const updateHeader = () => {
+        if (!header) return;
 
-        const scrollTop =
-            window.scrollY ||
-            document.documentElement.scrollTop ||
-            0;
+        header.classList.toggle(
+            "is-scrolled",
+            window.scrollY > 40
+        );
+    };
 
+
+    /* ----------------------------------------
+       Scroll Progress
+    ---------------------------------------- */
+
+    const updateProgress = () => {
+        if (!progressBar) return;
 
         const documentHeight =
-            document.documentElement.scrollHeight;
+            document.documentElement.scrollHeight -
+            window.innerHeight;
 
-
-        const viewportHeight =
-            document.documentElement.clientHeight;
-
-
-        const scrollableHeight =
-            documentHeight - viewportHeight;
-
-
-        // ==========================================
-        // SCROLL PROGRESS
-        // ==========================================
-
-        if (progress) {
-
-            let percentage = 0;
-
-
-            if (scrollableHeight > 0) {
-
-                percentage =
-                    (scrollTop / scrollableHeight) * 100;
-
-            }
-
-
-            // Keep value between 0 and 100
-
-            percentage =
-                Math.max(
-                    0,
-                    Math.min(
-                        100,
-                        percentage
-                    )
-                );
-
-
-            progress.style.width =
-                percentage + "%";
-
+        if (documentHeight <= 0) {
+            progressBar.style.width = "0%";
+            return;
         }
 
+        const progress =
+            (window.scrollY / documentHeight) * 100;
 
-        // ==========================================
-        // BACK TO TOP
-        // ==========================================
+        progressBar.style.width =
+            `${Math.min(Math.max(progress, 0), 100)}%`;
+    };
 
-        if (backToTop) {
 
-            if (scrollTop > 300) {
+    /* ----------------------------------------
+       Active Navigation
+    ---------------------------------------- */
 
-                backToTop.classList.add(
-                    "show"
-                );
+    const updateActiveNavigation = () => {
+        if (!sections.length) return;
 
-            } else {
+        const scrollPosition =
+            window.scrollY +
+            Math.min(window.innerHeight * 0.3, 220);
 
-                backToTop.classList.remove(
-                    "show"
-                );
+        let currentSection = sections[0].id;
 
+        sections.forEach((section) => {
+            if (scrollPosition >= section.offsetTop) {
+                currentSection = section.id;
             }
+        });
 
+        navigationLinks.forEach((link) => {
+            const href = link.getAttribute("href");
+
+            const isActive =
+                href === `#${currentSection}`;
+
+            link.classList.toggle(
+                "active",
+                isActive
+            );
+        });
+    };
+
+
+    /* ----------------------------------------
+       Reveal Animations
+    ---------------------------------------- */
+
+    const setupRevealObserver = () => {
+        if (!revealElements.length) return;
+
+        if (
+            window.matchMedia(
+                "(prefers-reduced-motion: reduce)"
+            ).matches
+        ) {
+            revealElements.forEach((element) => {
+                element.classList.add("is-visible");
+            });
+
+            return;
         }
 
-    }
+        if (!("IntersectionObserver" in window)) {
+            revealElements.forEach((element) => {
+                element.classList.add("is-visible");
+            });
 
+            return;
+        }
 
-    // ==========================================
-    // OPTIMIZED SCROLL EVENT
-    // ==========================================
+        const observer =
+            new IntersectionObserver(
+                (entries, observerInstance) => {
+                    entries.forEach((entry) => {
+                        if (!entry.isIntersecting) return;
 
-    let ticking = false;
+                        entry.target.classList.add(
+                            "is-visible"
+                        );
 
-
-    function handleScroll() {
-
-        if (!ticking) {
-
-            window.requestAnimationFrame(
-                function () {
-
-                    updateScrollUI();
-
-                    ticking = false;
-
+                        observerInstance.unobserve(
+                            entry.target
+                        );
+                    });
+                },
+                {
+                    threshold: 0.12,
+                    rootMargin: "0px 0px -50px 0px"
                 }
             );
 
+        revealElements.forEach((element) => {
+            observer.observe(element);
+        });
+    };
 
-            ticking = true;
 
-        }
+    /* ----------------------------------------
+       Back To Top
+    ---------------------------------------- */
 
+    const backToTop =
+        document.querySelector(
+            ".back-to-top"
+        );
+
+    const updateBackToTop = () => {
+        if (!backToTop) return;
+
+        backToTop.classList.toggle(
+            "is-visible",
+            window.scrollY > 500
+        );
+    };
+
+
+    if (backToTop) {
+        backToTop.addEventListener(
+            "click",
+            (event) => {
+                event.preventDefault();
+
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+            }
+        );
     }
 
+
+    /* ----------------------------------------
+       Scroll Handler
+    ---------------------------------------- */
+
+    let ticking = false;
+
+    const handleScroll = () => {
+        if (ticking) return;
+
+        window.requestAnimationFrame(() => {
+            updateHeader();
+            updateProgress();
+            updateActiveNavigation();
+            updateBackToTop();
+
+            ticking = false;
+        });
+
+        ticking = true;
+    };
+
+
+    /* ----------------------------------------
+       Initial State
+    ---------------------------------------- */
+
+    updateHeader();
+    updateProgress();
+    updateActiveNavigation();
+    updateBackToTop();
+
+    setupRevealObserver();
+
+
+    /* ----------------------------------------
+       Events
+    ---------------------------------------- */
 
     window.addEventListener(
         "scroll",
@@ -143,45 +224,12 @@
         { passive: true }
     );
 
-
-    // ==========================================
-    // BACK TO TOP
-    // ==========================================
-
-    if (backToTop) {
-
-        backToTop.addEventListener(
-            "click",
-            function () {
-
-                window.scrollTo({
-
-                    top: 0,
-
-                    behavior: "smooth"
-
-                });
-
-            }
-        );
-
-    }
-
-
-    // ==========================================
-    // INITIAL UPDATE
-    // ==========================================
-
-    updateScrollUI();
-
-
-    // ==========================================
-    // SUCCESS MESSAGE
-    // ==========================================
-
-    console.log(
-        "[Scroll] Initialized successfully."
+    window.addEventListener(
+        "resize",
+        () => {
+            updateProgress();
+            updateActiveNavigation();
+        },
+        { passive: true }
     );
-
-
-})();
+});
