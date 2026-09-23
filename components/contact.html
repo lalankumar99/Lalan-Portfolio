@@ -1,125 +1,219 @@
-<!-- =========================================
-     CONTACT SECTION
-========================================= -->
+<!-- components/contact.html -->
 
-<section id="contact" class="contact section">
-
+<section class="contact-section section" id="contact" aria-labelledby="contact-title">
     <div class="container">
 
-        <!-- Section Title -->
+        <div class="section-header contact-section-header">
+            <span class="section-label">Contact</span>
 
-        <div class="section-title">
-
-            <span>CONTACT</span>
-
-            <h2>Get In Touch</h2>
+            <h2 id="contact-title">
+                Let's Start a
+                <span class="gradient-text">Conversation.</span>
+            </h2>
 
             <p>
-                Have a project, collaboration, or question?
-                Feel free to contact me anytime.
+                Have a project idea, collaboration opportunity or simply
+                want to connect? Feel free to reach out.
             </p>
-
         </div>
 
-        <div class="contact-wrapper">
+        <div class="contact-layout">
 
-            <!-- Contact Information -->
+            <div class="contact-info">
 
-            <div class="contact-info glass">
+                <div class="contact-info-header">
+                    <span class="contact-info-label">
+                        GET IN TOUCH
+                    </span>
 
-                <h3>Contact Information</h3>
+                    <h3>
+                        Let's build something
+                        <span class="gradient-text">meaningful.</span>
+                    </h3>
 
-                <div class="contact-item">
+                    <p>
+                        I am always interested in learning about new ideas,
+                        technical projects, creative collaborations and
+                        opportunities to grow.
+                    </p>
+                </div>
 
-                    <i class="fas fa-envelope"></i>
+                <div class="contact-methods">
 
-                    <div>
+                    <a
+                        href="mailto:your.email@example.com"
+                        class="contact-method"
+                    >
+                        <span class="contact-method-icon">
+                            @
+                        </span>
 
-                        <h4>Email</h4>
+                        <span class="contact-method-content">
+                            <small>Email</small>
+                            <strong>your.email@example.com</strong>
+                        </span>
 
-                        <p>lalankumarbnk17@gmail.com</p>
+                        <span class="contact-method-arrow">
+                            ↗
+                        </span>
+                    </a>
 
-                    </div>
+                    <a
+                        href="#"
+                        class="contact-method"
+                    >
+                        <span class="contact-method-icon">
+                            in
+                        </span>
+
+                        <span class="contact-method-content">
+                            <small>LinkedIn</small>
+                            <strong>Connect professionally</strong>
+                        </span>
+
+                        <span class="contact-method-arrow">
+                            ↗
+                        </span>
+                    </a>
+
+                    <a
+                        href="#"
+                        class="contact-method"
+                    >
+                        <span class="contact-method-icon">
+                            GH
+                        </span>
+
+                        <span class="contact-method-content">
+                            <small>GitHub</small>
+                            <strong>Explore my projects</strong>
+                        </span>
+
+                        <span class="contact-method-arrow">
+                            ↗
+                        </span>
+                    </a>
 
                 </div>
 
-                <div class="contact-item">
+                <div class="contact-availability">
 
-                    <i class="fas fa-phone"></i>
-
-                    <div>
-
-                        <h4>Phone</h4>
-
-                        <p>+91 9296783086</p>
-
-                    </div>
-
-                </div>
-
-                <div class="contact-item">
-
-                    <i class="fas fa-location-dot"></i>
+                    <span class="contact-availability-dot">
+                        <span></span>
+                    </span>
 
                     <div>
-
-                        <h4>Location</h4>
-
-                        <p>India</p>
-
-                    </div>
-
-                </div>
-
-                <div class="contact-item">
-
-                    <i class="fab fa-whatsapp"></i>
-
-                    <div>
-
-                        <h4>WhatsApp</h4>
-
-                        <p>Available for Chat</p>
-
+                        <strong>Open to opportunities</strong>
+                        <span>Projects · Collaboration · Learning</span>
                     </div>
 
                 </div>
 
             </div>
 
-            <!-- Contact Form -->
+            <div class="contact-form-wrapper">
 
-            <div class="contact-form glass">
+                <div class="contact-form-top">
+                    <div>
+                        <span class="contact-form-label">
+                            SEND A MESSAGE
+                        </span>
 
-                <form>
+                        <h3>
+                            Tell me about your idea.
+                        </h3>
+                    </div>
 
-                    <input
-                        type="text"
-                        placeholder="Full Name"
-                        required>
+                    <span class="contact-form-icon">
+                        ↗
+                    </span>
+                </div>
 
-                    <input
-                        type="email"
-                        placeholder="Email Address"
-                        required>
+                <form
+                    class="contact-form"
+                    id="contact-form"
+                    action="#"
+                    method="post"
+                >
 
-                    <input
-                        type="text"
-                        placeholder="Subject"
-                        required>
+                    <div class="contact-form-row">
 
-                    <textarea
-                        rows="6"
-                        placeholder="Write your message..."
-                        required></textarea>
+                        <div class="form-group">
+                            <label for="contact-name">
+                                Your Name
+                            </label>
 
-                    <button
-                        type="submit"
-                        class="btn-primary">
+                            <input
+                                type="text"
+                                id="contact-name"
+                                name="name"
+                                placeholder="Enter your name"
+                                autocomplete="name"
+                                required
+                            >
+                        </div>
 
-                        Send Message
+                        <div class="form-group">
+                            <label for="contact-email">
+                                Email Address
+                            </label>
 
-                    </button>
+                            <input
+                                type="email"
+                                id="contact-email"
+                                name="email"
+                                placeholder="Enter your email"
+                                autocomplete="email"
+                                required
+                            >
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contact-subject">
+                            Subject
+                        </label>
+
+                        <input
+                            type="text"
+                            id="contact-subject"
+                            name="subject"
+                            placeholder="What would you like to discuss?"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contact-message">
+                            Message
+                        </label>
+
+                        <textarea
+                            id="contact-message"
+                            name="message"
+                            rows="6"
+                            placeholder="Write your message here..."
+                            required
+                        ></textarea>
+                    </div>
+
+                    <div class="contact-form-bottom">
+
+                        <p>
+                            <span>●</span>
+                            Your message is ready to send.
+                        </p>
+
+                        <button
+                            type="submit"
+                            class="btn btn-primary contact-submit"
+                        >
+                            <span>Send Message</span>
+                            <span aria-hidden="true">↗</span>
+                        </button>
+
+                    </div>
 
                 </form>
 
@@ -127,22 +221,20 @@
 
         </div>
 
-        <!-- Social Links -->
+        <div class="contact-bottom">
 
-        <div class="contact-social">
+            <div class="contact-bottom-line"></div>
 
-            <a href="#"><i class="fab fa-github"></i></a>
+            <div class="contact-bottom-center">
+                <span>LK</span>
+                <p>
+                    Building ideas with engineering &amp; technology.
+                </p>
+            </div>
 
-            <a href="#"><i class="fab fa-linkedin"></i></a>
-
-            <a href="#"><i class="fab fa-youtube"></i></a>
-
-            <a href="#"><i class="fab fa-instagram"></i></a>
-
-            <a href="#"><i class="fab fa-facebook"></i></a>
+            <div class="contact-bottom-line"></div>
 
         </div>
 
     </div>
-
 </section>
