@@ -1,102 +1,454 @@
-<!-- =========================================
-     DASHBOARD SECTION
-========================================= -->
+<!-- components/dashboard.html -->
 
-<section id="dashboard" class="dashboard section">
+<section
+    class="dashboard-section section"
+    id="dashboard"
+    aria-labelledby="dashboard-title"
+>
 
     <div class="container">
 
-        <!-- Section Title -->
+        <div class="section-header dashboard-section-header">
 
-        <div class="section-title">
+            <span class="section-label">
+                Dashboard
+            </span>
 
-            <span>DASHBOARD</span>
-
-            <h2>Portfolio Dashboard</h2>
+            <h2 id="dashboard-title">
+                My
+                <span class="gradient-text">Progress Dashboard.</span>
+            </h2>
 
             <p>
-                A quick overview of my portfolio, projects,
-                achievements and technical profile.
+                A quick overview of my current learning direction,
+                technical focus, project activity and development journey.
             </p>
 
         </div>
 
-        <!-- Dashboard Cards -->
 
-        <div class="dashboard-grid">
+        <div class="dashboard-top-grid">
 
-            <div class="dashboard-card glass">
+            <div class="dashboard-status-card">
 
-                <i class="fas fa-folder-open"></i>
+                <div class="dashboard-card-header">
 
-                <h3>Projects</h3>
+                    <div>
+                        <span class="dashboard-card-label">
+                            CURRENT STATUS
+                        </span>
 
-                <h2>25+</h2>
+                        <h3>
+                            Building &amp; Learning
+                        </h3>
+                    </div>
+
+                    <span class="dashboard-status-icon">
+                        ↗
+                    </span>
+
+                </div>
+
+                <div class="dashboard-status-body">
+
+                    <div class="dashboard-status-indicator">
+                        <span></span>
+                    </div>
+
+                    <div>
+                        <strong>
+                            Open to opportunities
+                        </strong>
+
+                        <p>
+                            Projects · Collaboration · Learning
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="dashboard-progress">
+
+                    <div class="dashboard-progress-top">
+                        <span>Overall Development</span>
+                        <strong>78%</strong>
+                    </div>
+
+                    <div class="dashboard-progress-track">
+                        <span style="width: 78%;"></span>
+                    </div>
+
+                </div>
 
             </div>
 
-            <div class="dashboard-card glass">
 
-                <i class="fas fa-award"></i>
+            <div class="dashboard-focus-card">
 
-                <h3>Certificates</h3>
+                <div class="dashboard-card-header">
 
-                <h2>15+</h2>
+                    <div>
+                        <span class="dashboard-card-label">
+                            CURRENT FOCUS
+                        </span>
 
-            </div>
+                        <h3>
+                            Engineering + Technology
+                        </h3>
+                    </div>
 
-            <div class="dashboard-card glass">
+                    <span class="dashboard-focus-icon">
+                        ⚡
+                    </span>
 
-                <i class="fas fa-code"></i>
+                </div>
 
-                <h3>Skills</h3>
+                <div class="dashboard-focus-tags">
 
-                <h2>30+</h2>
+                    <span>Electrical Engineering</span>
+                    <span>Web Development</span>
+                    <span>Digital Projects</span>
+                    <span>Problem Solving</span>
 
-            </div>
-
-            <div class="dashboard-card glass">
-
-                <i class="fas fa-blog"></i>
-
-                <h3>Articles</h3>
-
-                <h2>10+</h2>
+                </div>
 
             </div>
 
         </div>
 
-        <!-- Activity -->
 
-        <div class="dashboard-activity glass">
+        <div class="dashboard-metrics">
 
-            <h3>Recent Activity</h3>
+            <article class="dashboard-metric-card">
 
-            <ul>
+                <span class="dashboard-metric-number">
+                    01
+                </span>
 
-                <li>✅ Added new portfolio project</li>
+                <div class="dashboard-metric-icon">
+                    ⚙
+                </div>
 
-                <li>🏆 Uploaded latest certificate</li>
+                <div class="dashboard-metric-content">
+                    <strong>Engineering</strong>
+                    <span>Technical Foundation</span>
+                </div>
 
-                <li>📄 Updated resume</li>
+                <div class="dashboard-metric-value">
+                    78%
+                </div>
 
-                <li>📝 Published a new blog article</li>
+            </article>
 
-            </ul>
+
+            <article class="dashboard-metric-card">
+
+                <span class="dashboard-metric-number">
+                    02
+                </span>
+
+                <div class="dashboard-metric-icon">
+                    &lt;/&gt;
+                </div>
+
+                <div class="dashboard-metric-content">
+                    <strong>Development</strong>
+                    <span>Web &amp; Digital Skills</span>
+                </div>
+
+                <div class="dashboard-metric-value">
+                    72%
+                </div>
+
+            </article>
+
+
+            <article class="dashboard-metric-card">
+
+                <span class="dashboard-metric-number">
+                    03
+                </span>
+
+                <div class="dashboard-metric-icon">
+                    ✦
+                </div>
+
+                <div class="dashboard-metric-content">
+                    <strong>Design</strong>
+                    <span>UI &amp; Creative Tools</span>
+                </div>
+
+                <div class="dashboard-metric-value">
+                    76%
+                </div>
+
+            </article>
+
+
+            <article class="dashboard-metric-card">
+
+                <span class="dashboard-metric-number">
+                    04
+                </span>
+
+                <div class="dashboard-metric-icon">
+                    ↗
+                </div>
+
+                <div class="dashboard-metric-content">
+                    <strong>Growth</strong>
+                    <span>Continuous Learning</span>
+                </div>
+
+                <div class="dashboard-metric-value">
+                    84%
+                </div>
+
+            </article>
 
         </div>
 
-        <!-- GitHub Stats Placeholder -->
 
-        <div class="dashboard-github glass">
+        <div class="dashboard-main-grid">
 
-            <h3>GitHub Statistics</h3>
+            <div class="dashboard-activity-card">
 
-            <p>
-                GitHub contribution graph and repository statistics
-                will appear here.
-            </p>
+                <div class="dashboard-card-header">
+
+                    <div>
+                        <span class="dashboard-card-label">
+                            ACTIVITY
+                        </span>
+
+                        <h3>
+                            Learning Journey
+                        </h3>
+                    </div>
+
+                    <span class="dashboard-period">
+                        2026
+                    </span>
+
+                </div>
+
+
+                <div class="dashboard-chart">
+
+                    <div class="dashboard-chart-y">
+                        <span>100</span>
+                        <span>75</span>
+                        <span>50</span>
+                        <span>25</span>
+                        <span>0</span>
+                    </div>
+
+                    <div class="dashboard-chart-area">
+
+                        <div class="dashboard-chart-lines">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+
+                        <div class="dashboard-chart-bars">
+
+                            <div class="dashboard-bar">
+                                <span style="height: 35%;"></span>
+                                <small>JAN</small>
+                            </div>
+
+                            <div class="dashboard-bar">
+                                <span style="height: 48%;"></span>
+                                <small>FEB</small>
+                            </div>
+
+                            <div class="dashboard-bar">
+                                <span style="height: 42%;"></span>
+                                <small>MAR</small>
+                            </div>
+
+                            <div class="dashboard-bar">
+                                <span style="height: 61%;"></span>
+                                <small>APR</small>
+                            </div>
+
+                            <div class="dashboard-bar">
+                                <span style="height: 58%;"></span>
+                                <small>MAY</small>
+                            </div>
+
+                            <div class="dashboard-bar">
+                                <span style="height: 73%;"></span>
+                                <small>JUN</small>
+                            </div>
+
+                            <div class="dashboard-bar">
+                                <span style="height: 68%;"></span>
+                                <small>JUL</small>
+                            </div>
+
+                            <div class="dashboard-bar active">
+                                <span style="height: 82%;"></span>
+                                <small>AUG</small>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="dashboard-goals-card">
+
+                <div class="dashboard-card-header">
+
+                    <div>
+                        <span class="dashboard-card-label">
+                            CURRENT GOALS
+                        </span>
+
+                        <h3>
+                            What I'm Building
+                        </h3>
+                    </div>
+
+                </div>
+
+
+                <div class="dashboard-goals">
+
+                    <div class="dashboard-goal">
+
+                        <div class="dashboard-goal-icon">
+                            01
+                        </div>
+
+                        <div class="dashboard-goal-content">
+                            <strong>
+                                Strengthen Engineering Skills
+                            </strong>
+
+                            <span>
+                                Technical concepts &amp; practical learning
+                            </span>
+                        </div>
+
+                        <span class="dashboard-goal-status">
+                            Active
+                        </span>
+
+                    </div>
+
+
+                    <div class="dashboard-goal">
+
+                        <div class="dashboard-goal-icon">
+                            02
+                        </div>
+
+                        <div class="dashboard-goal-content">
+                            <strong>
+                                Build Better Projects
+                            </strong>
+
+                            <span>
+                                Web, educational &amp; digital projects
+                            </span>
+                        </div>
+
+                        <span class="dashboard-goal-status">
+                            Active
+                        </span>
+
+                    </div>
+
+
+                    <div class="dashboard-goal">
+
+                        <div class="dashboard-goal-icon">
+                            03
+                        </div>
+
+                        <div class="dashboard-goal-content">
+                            <strong>
+                                Explore New Technology
+                            </strong>
+
+                            <span>
+                                Tools, AI, development &amp; innovation
+                            </span>
+                        </div>
+
+                        <span class="dashboard-goal-status">
+                            Next
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="dashboard-bottom">
+
+            <div class="dashboard-bottom-item">
+
+                <span class="dashboard-bottom-icon">
+                    ✓
+                </span>
+
+                <div>
+                    <strong>Learn</strong>
+                    <small>Build knowledge</small>
+                </div>
+
+            </div>
+
+
+            <span class="dashboard-bottom-arrow">
+                →
+            </span>
+
+
+            <div class="dashboard-bottom-item">
+
+                <span class="dashboard-bottom-icon">
+                    ⚙
+                </span>
+
+                <div>
+                    <strong>Build</strong>
+                    <small>Create projects</small>
+                </div>
+
+            </div>
+
+
+            <span class="dashboard-bottom-arrow">
+                →
+            </span>
+
+
+            <div class="dashboard-bottom-item">
+
+                <span class="dashboard-bottom-icon">
+                    ↗
+                </span>
+
+                <div>
+                    <strong>Improve</strong>
+                    <small>Keep growing</small>
+                </div>
+
+            </div>
 
         </div>
 
