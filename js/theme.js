@@ -1,238 +1,167 @@
-/* ==========================================
-   LALAN KUMAR - ELECTRICAL ENGG. - PORTFOLIO 
-   THEME SWITCHER
-========================================== */
+/* js/theme.js */
 
-"use strict";
+document.addEventListener("DOMContentLoaded", () => {
+    const themeToggle = document.getElementById("theme-toggle");
 
+    if (!themeToggle) return;
 
-// ==========================================
-// THEME SWITCHER
-// ==========================================
+    const root = document.documentElement;
 
-(function () {
+    const STORAGE_KEY = "lalan-portfolio-theme";
 
 
-    // ==========================================
-    // GET CURRENT THEME
-    // ==========================================
+    /* ----------------------------------------
+       Get Saved Theme
+    ---------------------------------------- */
 
-    function getSavedTheme() {
-
-        return localStorage.getItem("theme") || "dark";
-
-    }
-
-
-    // ==========================================
-    // UPDATE THEME BUTTON
-    // ==========================================
-
-    function updateThemeButtons() {
-
-        const themeBtn =
-            document.getElementById("themeToggle");
-
-        const sidebarThemeBtn =
-            document.getElementById(
-                "themeToggleSidebar"
-            );
-
-
-        const isLight =
-            document.body.classList.contains(
-                "light-theme"
-            );
-
-
-        // ------------------------------------------
-        // Header Theme Button
-        // ------------------------------------------
-
-        if (themeBtn) {
-
-            themeBtn.innerHTML = isLight
-                ? '<i class="fas fa-sun" aria-hidden="true"></i>'
-                : '<i class="fas fa-moon" aria-hidden="true"></i>';
-
-
-            themeBtn.setAttribute(
-                "aria-pressed",
-                String(isLight)
-            );
-
-
-            themeBtn.setAttribute(
-                "aria-label",
-                isLight
-                    ? "Switch to Dark Theme"
-                    : "Switch to Light Theme"
-            );
-
-        }
-
-
-        // ------------------------------------------
-        // Sidebar Theme Button
-        // ------------------------------------------
-
-        if (sidebarThemeBtn) {
-
-            sidebarThemeBtn.innerHTML = isLight
-                ? '<i class="fas fa-sun" aria-hidden="true"></i><span>Light Theme</span>'
-                : '<i class="fas fa-moon" aria-hidden="true"></i><span>Dark Theme</span>';
-
-
-            sidebarThemeBtn.setAttribute(
-                "aria-pressed",
-                String(isLight)
-            );
-
-
-            sidebarThemeBtn.setAttribute(
-                "aria-label",
-                isLight
-                    ? "Switch to Dark Theme"
-                    : "Switch to Light Theme"
-            );
-
-        }
-
-    }
-
-
-    // ==========================================
-    // APPLY SAVED THEME
-    // ==========================================
-
-    function applySavedTheme() {
-
+    const getSavedTheme = () => {
         const savedTheme =
-            getSavedTheme();
+            localStorage.getItem(STORAGE_KEY);
 
-
-        if (savedTheme === "light") {
-
-            document.body.classList.add(
-                "light-theme"
-            );
-
-        } else {
-
-            document.body.classList.remove(
-                "light-theme"
-            );
-
+        if (
+            savedTheme === "dark" ||
+            savedTheme === "light"
+        ) {
+            return savedTheme;
         }
 
-    }
+        return window.matchMedia(
+            "(prefers-color-scheme: light)"
+        ).matches
+            ? "light"
+            : "dark";
+    };
 
 
-    // ==========================================
-    // TOGGLE THEME
-    // ==========================================
+    /* ----------------------------------------
+       Apply Theme
+    ---------------------------------------- */
 
-    function toggleTheme() {
+    const applyTheme = (theme) => {
+        root.setAttribute(
+            "data-theme",
+            theme
+        );
 
         const isLight =
-            document.body.classList.toggle(
-                "light-theme"
-            );
+            theme === "light";
 
+        themeToggle.setAttribute(
+            "aria-pressed",
+            String(isLight)
+        );
 
-        const newTheme =
+        themeToggle.setAttribute(
+            "aria-label",
             isLight
+                ? "Switch to dark theme"
+                : "Switch to light theme"
+        );
+
+        localStorage.setItem(
+            STORAGE_KEY,
+            theme
+        );
+
+        window.dispatchEvent(
+            new CustomEvent(
+                "portfolioThemeChanged",
+                {
+                    detail: {
+                        theme
+                    }
+                }
+            )
+        );
+    };
+
+
+    /* ----------------------------------------
+       Toggle Theme
+    ---------------------------------------- */
+
+    const toggleTheme = () => {
+        const currentTheme =
+            root.getAttribute("data-theme") ||
+            "dark";
+
+        const nextTheme =
+            currentTheme === "dark"
                 ? "light"
                 : "dark";
 
-
-        // Save theme
-
-        localStorage.setItem(
-            "theme",
-            newTheme
-        );
+        applyTheme(nextTheme);
+    };
 
 
-        // Update both buttons
+    /* ----------------------------------------
+       Initialize
+    ---------------------------------------- */
 
-        updateThemeButtons();
-
-
-        console.log(
-            `[Theme] Switched to ${newTheme} theme.`
-        );
-
-    }
+    applyTheme(getSavedTheme());
 
 
-    // ==========================================
-    // INITIALIZE THEME
-    // ==========================================
+    /* ----------------------------------------
+       Events
+    ---------------------------------------- */
 
-    function initializeTheme() {
-
-        applySavedTheme();
-
-        updateThemeButtons();
-
-
-        // ------------------------------------------
-        // Header Button
-        // ------------------------------------------
-
-        const themeBtn =
-            document.getElementById(
-                "themeToggle"
-            );
-
-
-        if (themeBtn) {
-
-            themeBtn.addEventListener(
-                "click",
-                toggleTheme
-            );
-
-        }
-
-
-        // ------------------------------------------
-        // Sidebar Button
-        // ------------------------------------------
-
-        const sidebarThemeBtn =
-            document.getElementById(
-                "themeToggleSidebar"
-            );
-
-
-        if (sidebarThemeBtn) {
-
-            sidebarThemeBtn.addEventListener(
-                "click",
-                toggleTheme
-            );
-
-        }
-
-
-        console.log(
-            "[Theme] Initialized successfully."
-        );
-
-    }
-
-
-    // ==========================================
-    // WAIT FOR COMPONENTS
-    // ==========================================
-
-    document.addEventListener(
-        "componentsLoaded",
-        initializeTheme,
-        { once: true }
+    themeToggle.addEventListener(
+        "click",
+        toggleTheme
     );
 
 
-})();
+    /* ----------------------------------------
+       System Theme Changes
+       Only applies when user has not
+       manually selected a theme.
+    ---------------------------------------- */
+
+    const systemTheme =
+        window.matchMedia(
+            "(prefers-color-scheme: light)"
+        );
+
+    systemTheme.addEventListener(
+        "change",
+        (event) => {
+            const savedTheme =
+                localStorage.getItem(
+                    STORAGE_KEY
+                );
+
+            if (savedTheme) return;
+
+            applyTheme(
+                event.matches
+                    ? "light"
+                    : "dark"
+            );
+        }
+    );
+
+
+    /* ----------------------------------------
+       Public Theme API
+    ---------------------------------------- */
+
+    window.PortfolioTheme = {
+        getTheme: () =>
+            root.getAttribute(
+                "data-theme"
+            ),
+
+        setTheme: (theme) => {
+            if (
+                theme !== "dark" &&
+                theme !== "light"
+            ) {
+                return;
+            }
+
+            applyTheme(theme);
+        },
+
+        toggle: toggleTheme
+    };
+});
