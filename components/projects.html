@@ -1,86 +1,382 @@
-<!-- =========================================
-     PROJECTS SECTION
-========================================= -->
+<!-- components/projects.html -->
 
-<section id="projects" class="projects section">
-
+<section class="projects-section section" id="projects" aria-labelledby="projects-title">
     <div class="container">
 
-        <!-- Section Title -->
+        <div class="section-header projects-section-header">
+            <span class="section-label">Projects</span>
 
-        <div class="section-title">
-
-            <span>MY PROJECTS</span>
-
-            <h2>Featured Projects</h2>
+            <h2 id="projects-title">
+                Things I
+                <span class="gradient-text">Build.</span>
+            </h2>
 
             <p>
-                Explore my latest projects, web applications,
-                AI tools, and creative works.
+                A collection of engineering, web development and digital
+                projects created while learning, experimenting and building.
             </p>
-
         </div>
 
-        <!-- Filter Buttons -->
+        <div class="projects-featured">
 
-        <div class="project-filters">
+            <article class="project-featured-card">
 
-            <button class="filter-btn active">All</button>
-            <button class="filter-btn">Web</button>
-            <button class="filter-btn">AI</button>
-            <button class="filter-btn">Mobile</button>
-            <button class="filter-btn">Design</button>
+                <div class="project-featured-visual">
+                    <div class="project-visual-grid"></div>
 
-        </div>
+                    <div class="project-visual-glow"></div>
 
-        <!-- Projects Grid -->
+                    <div class="project-code-window">
 
-        <div class="projects-grid">
+                        <div class="project-window-top">
+                            <span></span>
+                            <span></span>
+                            <span></span>
 
-            <!-- Project Card -->
+                            <small>
+                                PROJECT_01
+                            </small>
+                        </div>
 
-            <div class="project-card glass">
+                        <div class="project-code-content">
+                            <span class="code-line">
+                                <i>01</i>
+                                <b>&lt;project&gt;</b>
+                            </span>
 
-                <img
-                    src="assets/images/projects/project-1.jpg"
-                    alt="Project">
+                            <span class="code-line">
+                                <i>02</i>
+                                <b>engineering</b>
+                                <em>+</em>
+                                <b>technology</b>
+                            </span>
 
-                <div class="project-content">
+                            <span class="code-line">
+                                <i>03</i>
+                                <b>build</b>
+                                <em>=</em>
+                                <strong>solution</strong>
+                            </span>
 
-                    <h3>Portfolio Website</h3>
-
-                    <p>
-                        Modern responsive portfolio with premium UI.
-                    </p>
-
-                    <div class="project-tags">
-
-                        <span>HTML</span>
-                        <span>CSS</span>
-                        <span>JavaScript</span>
+                            <span class="code-line">
+                                <i>04</i>
+                                <b>&lt;/project&gt;</b>
+                            </span>
+                        </div>
 
                     </div>
 
-                    <div class="project-buttons">
+                    <div class="project-floating-icon project-floating-icon-one">
+                        ⚡
+                    </div>
 
-                        <a href="#" class="btn-primary">
-                            Live Demo
-                        </a>
+                    <div class="project-floating-icon project-floating-icon-two">
+                        &lt;/&gt;
+                    </div>
 
-                        <a href="#" class="btn-secondary">
-                            GitHub
+                </div>
+
+                <div class="project-featured-content">
+
+                    <div class="project-card-top">
+                        <span class="project-category">
+                            FEATURED PROJECT
+                        </span>
+
+                        <span class="project-status">
+                            <span class="status-dot"></span>
+                            Active
+                        </span>
+                    </div>
+
+                    <h3>
+                        Polytechnic Hub
+                    </h3>
+
+                    <p>
+                        An educational platform concept designed to organize
+                        polytechnic study resources, notes, previous-year
+                        questions, quizzes and learning content in one
+                        responsive digital experience.
+                    </p>
+
+                    <div class="project-features">
+
+                        <span>Study Resources</span>
+                        <span>PDF Content</span>
+                        <span>Quiz System</span>
+                        <span>Responsive UI</span>
+
+                    </div>
+
+                    <div class="project-card-footer">
+
+                        <div class="project-stack">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+                        </div>
+
+                        <a
+                            href="#contact"
+                            class="project-link"
+                            aria-label="Discuss Polytechnic Hub project"
+                        >
+                            <span>View Project</span>
+                            <span aria-hidden="true">↗</span>
                         </a>
 
                     </div>
 
                 </div>
 
+            </article>
+
+        </div>
+
+        <div class="projects-grid">
+
+            <article class="project-card">
+
+                <div class="project-card-visual project-visual-blue">
+
+                    <div class="project-pattern"></div>
+
+                    <div class="project-icon-large">
+                        ⚡
+                    </div>
+
+                    <span class="project-visual-label">
+                        ENGINEERING
+                    </span>
+
+                </div>
+
+                <div class="project-card-content">
+
+                    <div class="project-card-meta">
+                        <span>Electrical</span>
+                        <span>01</span>
+                    </div>
+
+                    <h3>
+                        Electrical Engineering Resources
+                    </h3>
+
+                    <p>
+                        A digital resource concept for organizing
+                        engineering notes, study material and technical
+                        learning resources.
+                    </p>
+
+                    <div class="project-card-bottom">
+
+                        <div class="project-mini-stack">
+                            <span>Web</span>
+                            <span>Education</span>
+                        </div>
+
+                        <a
+                            href="#contact"
+                            class="project-arrow"
+                            aria-label="View Electrical Engineering project"
+                        >
+                            ↗
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+            <article class="project-card">
+
+                <div class="project-card-visual project-visual-cyan">
+
+                    <div class="project-pattern"></div>
+
+                    <div class="project-icon-large">
+                        &lt;/&gt;
+                    </div>
+
+                    <span class="project-visual-label">
+                        DEVELOPMENT
+                    </span>
+
+                </div>
+
+                <div class="project-card-content">
+
+                    <div class="project-card-meta">
+                        <span>Web Development</span>
+                        <span>02</span>
+                    </div>
+
+                    <h3>
+                        Personal Portfolio
+                    </h3>
+
+                    <p>
+                        A responsive personal portfolio designed to present
+                        engineering education, technical skills, projects
+                        and digital work.
+                    </p>
+
+                    <div class="project-card-bottom">
+
+                        <div class="project-mini-stack">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JS</span>
+                        </div>
+
+                        <a
+                            href="#contact"
+                            class="project-arrow"
+                            aria-label="View portfolio project"
+                        >
+                            ↗
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+            <article class="project-card">
+
+                <div class="project-card-visual project-visual-purple">
+
+                    <div class="project-pattern"></div>
+
+                    <div class="project-icon-large">
+                        ◈
+                    </div>
+
+                    <span class="project-visual-label">
+                        DIGITAL
+                    </span>
+
+                </div>
+
+                <div class="project-card-content">
+
+                    <div class="project-card-meta">
+                        <span>Digital Platform</span>
+                        <span>03</span>
+                    </div>
+
+                    <h3>
+                        Study Content Platform
+                    </h3>
+
+                    <p>
+                        A concept for delivering structured study content,
+                        digital notes, quizzes and educational resources
+                        through a simple interface.
+                    </p>
+
+                    <div class="project-card-bottom">
+
+                        <div class="project-mini-stack">
+                            <span>UI</span>
+                            <span>Content</span>
+                            <span>Web</span>
+                        </div>
+
+                        <a
+                            href="#contact"
+                            class="project-arrow"
+                            aria-label="View study platform project"
+                        >
+                            ↗
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+            <article class="project-card">
+
+                <div class="project-card-visual project-visual-dark">
+
+                    <div class="project-pattern"></div>
+
+                    <div class="project-icon-large">
+                        ✦
+                    </div>
+
+                    <span class="project-visual-label">
+                        CREATIVE
+                    </span>
+
+                </div>
+
+                <div class="project-card-content">
+
+                    <div class="project-card-meta">
+                        <span>Creative Technology</span>
+                        <span>04</span>
+                    </div>
+
+                    <h3>
+                        Digital Design Projects
+                    </h3>
+
+                    <p>
+                        Visual assets, banners, thumbnails and technology
+                        focused digital designs created for online projects
+                        and content.
+                    </p>
+
+                    <div class="project-card-bottom">
+
+                        <div class="project-mini-stack">
+                            <span>Design</span>
+                            <span>Canva</span>
+                        </div>
+
+                        <a
+                            href="#contact"
+                            class="project-arrow"
+                            aria-label="View design projects"
+                        >
+                            ↗
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+        </div>
+
+        <div class="projects-cta">
+
+            <div class="projects-cta-content">
+                <span>MORE PROJECTS</span>
+
+                <h3>
+                    Always building something new.
+                </h3>
+
+                <p>
+                    New experiments, ideas and technical projects are
+                    continuously being added to my learning journey.
+                </p>
             </div>
 
-            <!-- Duplicate this card for more projects -->
+            <a href="#contact" class="btn btn-primary">
+                <span>Let's Build Together</span>
+                <span aria-hidden="true">↗</span>
+            </a>
 
         </div>
 
     </div>
-
 </section>
