@@ -1,106 +1,304 @@
-<!-- =========================================
-     BLOG SECTION
-========================================= -->
+<!-- components/blog.html -->
 
-<section id="blog" class="blog section">
+<section class="blog-section section" id="blog" aria-labelledby="blog-title">
 
     <div class="container">
 
-        <!-- Section Title -->
+        <div class="section-header blog-section-header">
 
-        <div class="section-title">
+            <span class="section-label">
+                Blog
+            </span>
 
-            <span>BLOG</span>
-
-            <h2>Latest Articles</h2>
+            <h2 id="blog-title">
+                Thoughts,
+                <span class="gradient-text">Learning &amp; Ideas.</span>
+            </h2>
 
             <p>
-                Tutorials, engineering notes, web development,
-                AI, technology and personal learning experiences.
+                Notes from my engineering journey, technology experiments,
+                projects, learning process and ideas worth sharing.
             </p>
 
         </div>
 
-        <!-- Search -->
 
-        <div class="blog-search">
+        <div class="blog-featured">
 
-            <input
-                type="search"
-                placeholder="Search articles...">
+            <div class="blog-featured-visual">
 
-        </div>
+                <div class="blog-visual-grid"></div>
 
-        <!-- Categories -->
+                <div class="blog-visual-orb"></div>
 
-        <div class="blog-categories">
+                <div class="blog-code-card">
 
-            <button class="blog-btn active">All</button>
+                    <div class="blog-code-top">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
 
-            <button class="blog-btn">Engineering</button>
-
-            <button class="blog-btn">Programming</button>
-
-            <button class="blog-btn">AI</button>
-
-            <button class="blog-btn">Technology</button>
-
-        </div>
-
-        <!-- Blog Grid -->
-
-        <div class="blog-grid">
-
-            <!-- Article -->
-
-            <article class="blog-card glass">
-
-                <img
-                    src="assets/images/blog/blog -1.png"
-                    alt="Blog">
-
-                <div class="blog-content">
-
-                    <span class="blog-date">
-                        August 2026
-                    </span>
-
-                    <h3>
-                        Building a Premium Portfolio Website
-                    </h3>
-
-                    <p>
-                        Learn how to create a modern,
-                        responsive and professional portfolio.
-                    </p>
-
-                    <div class="blog-footer">
-
-                        <span>
-                            <i class="fas fa-clock"></i>
-                            5 min
+                    <div class="blog-code-content">
+                        <span class="code-line">
+                            <i>01</i>
+                            <b>const</b>
+                            <em>learning</em> = [];
                         </span>
 
-                        <span>
-                            <i class="fas fa-eye"></i>
-                            120
+                        <span class="code-line">
+                            <i>02</i>
+                            learning.<em>push</em>(
+                        </span>
+
+                        <span class="code-line indent">
+                            <i>03</i>
+                            "Engineering"
+                        </span>
+
+                        <span class="code-line indent">
+                            <i>04</i>
+                            "Technology"
+                        </span>
+
+                        <span class="code-line indent">
+                            <i>05</i>
+                            "Projects"
+                        </span>
+
+                        <span class="code-line">
+                            <i>06</i>
+                            );
                         </span>
 
                     </div>
 
-                    <a
-                        href="#"
-                        class="btn-primary">
+                </div>
 
-                        Read More
+                <div class="blog-featured-badge">
+                    <span>01</span>
+                    Featured Article
+                </div>
 
+            </div>
+
+
+            <div class="blog-featured-content">
+
+                <div class="blog-meta">
+                    <span>ENGINEERING</span>
+                    <span>·</span>
+                    <span>5 MIN READ</span>
+                </div>
+
+                <h3>
+                    Learning Engineering
+                    Through Real Projects
+                </h3>
+
+                <p>
+                    Why building practical projects can transform technical
+                    knowledge into real-world understanding, problem-solving
+                    ability and confidence.
+                </p>
+
+                <div class="blog-featured-tags">
+
+                    <span>Engineering</span>
+                    <span>Projects</span>
+                    <span>Learning</span>
+
+                </div>
+
+                <a href="#contact" class="btn btn-primary blog-read-button">
+                    <span>Read Article</span>
+                    <span aria-hidden="true">↗</span>
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="blog-section-toolbar">
+
+            <div class="blog-toolbar-title">
+
+                <span class="blog-toolbar-line"></span>
+
+                <span>
+                    LATEST NOTES
+                </span>
+
+            </div>
+
+            <span class="blog-toolbar-count">
+                03 Articles
+            </span>
+
+        </div>
+
+
+        <div class="blog-grid">
+
+
+            <article class="blog-card">
+
+                <div class="blog-card-top">
+
+                    <span class="blog-card-number">
+                        02
+                    </span>
+
+                    <span class="blog-card-category">
+                        TECHNOLOGY
+                    </span>
+
+                </div>
+
+                <div class="blog-card-icon">
+                    &lt;/&gt;
+                </div>
+
+                <div class="blog-card-content">
+
+                    <div class="blog-card-meta">
+                        <span>WEB DEVELOPMENT</span>
+                        <span>·</span>
+                        <span>4 MIN</span>
+                    </div>
+
+                    <h3>
+                        Building My First
+                        Digital Projects
+                    </h3>
+
+                    <p>
+                        Lessons learned while exploring HTML, CSS,
+                        JavaScript and modern web development.
+                    </p>
+
+                    <a href="#contact" class="blog-card-link">
+                        <span>Read More</span>
+                        <span>↗</span>
                     </a>
 
                 </div>
 
             </article>
 
-            <!-- Duplicate for More Articles -->
+
+            <article class="blog-card">
+
+                <div class="blog-card-top">
+
+                    <span class="blog-card-number">
+                        03
+                    </span>
+
+                    <span class="blog-card-category">
+                        EDUCATION
+                    </span>
+
+                </div>
+
+                <div class="blog-card-icon">
+                    ⚡
+                </div>
+
+                <div class="blog-card-content">
+
+                    <div class="blog-card-meta">
+                        <span>ELECTRICAL</span>
+                        <span>·</span>
+                        <span>5 MIN</span>
+                    </div>
+
+                    <h3>
+                        From Theory to
+                        Practical Understanding
+                    </h3>
+
+                    <p>
+                        How engineering concepts become easier to understand
+                        when connected with practical examples.
+                    </p>
+
+                    <a href="#contact" class="blog-card-link">
+                        <span>Read More</span>
+                        <span>↗</span>
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <article class="blog-card">
+
+                <div class="blog-card-top">
+
+                    <span class="blog-card-number">
+                        04
+                    </span>
+
+                    <span class="blog-card-category">
+                        JOURNEY
+                    </span>
+
+                </div>
+
+                <div class="blog-card-icon">
+                    +
+                </div>
+
+                <div class="blog-card-content">
+
+                    <div class="blog-card-meta">
+                        <span>PERSONAL GROWTH</span>
+                        <span>·</span>
+                        <span>3 MIN</span>
+                    </div>
+
+                    <h3>
+                        Learning Something
+                        New Every Day
+                    </h3>
+
+                    <p>
+                        A simple mindset for staying curious, improving skills
+                        and continuously moving forward.
+                    </p>
+
+                    <a href="#contact" class="blog-card-link">
+                        <span>Read More</span>
+                        <span>↗</span>
+                    </a>
+
+                </div>
+
+            </article>
+
+        </div>
+
+
+        <div class="blog-bottom">
+
+            <div class="blog-bottom-line"></div>
+
+            <div class="blog-bottom-message">
+
+                <span class="blog-bottom-icon">
+                    ✦
+                </span>
+
+                <p>
+                    More technical articles and learning notes coming soon.
+                </p>
+
+            </div>
+
+            <div class="blog-bottom-line"></div>
 
         </div>
 
