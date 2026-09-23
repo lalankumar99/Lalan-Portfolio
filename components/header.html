@@ -1,149 +1,108 @@
-<!-- ==========================================
-     LALAN KUMAR - PREMIUM HEADER
-========================================== -->
+<!-- components/header.html -->
 
-<header
-    class="header"
-    id="header">
+<header class="site-header" id="site-header">
 
-    <div class="container">
+    <div class="header-container">
 
-        <div class="header-wrapper">
+        <a href="#home" class="brand" aria-label="Lalan Kumar Home">
 
-            <!-- ==========================================
-                 LOGO
-            =========================================== -->
+            <span class="brand-mark">
+                <span class="brand-mark-inner">LK</span>
+            </span>
 
-            <a
-                href="#hero"
-                class="logo"
-                aria-label="Lalan Kumar Home">
+            <span class="brand-content">
+                <span class="brand-name">LALAN KUMAR</span>
+                <span class="brand-tagline">Electrical Engineering</span>
+            </span>
 
-                <img
-                    src="assets/images/logo.png"
-                    alt="Lalan Kumar Logo"
-                    class="logo-img">
+        </a>
 
-                <div class="logo-content">
+        <nav class="main-navigation" id="main-navigation" aria-label="Main Navigation">
 
-                    <h2>Lalan Kumar</h2>
-
-                    <span>
-                        Premium Portfolio
-                    </span>
-
-                </div>
-
+            <a href="#home" class="nav-link active">
+                <span class="nav-number">01</span>
+                <span>Home</span>
             </a>
 
+            <a href="#about" class="nav-link">
+                <span class="nav-number">02</span>
+                <span>About</span>
+            </a>
 
-            <!-- ==========================================
-                 DESKTOP NAVIGATION
-            =========================================== -->
+            <a href="#education" class="nav-link">
+                <span class="nav-number">03</span>
+                <span>Education</span>
+            </a>
 
-            <nav
-                class="desktop-nav"
-                aria-label="Main Navigation">
+            <a href="#skills" class="nav-link">
+                <span class="nav-number">04</span>
+                <span>Skills</span>
+            </a>
 
-                <ul>
+            <a href="#experience" class="nav-link">
+                <span class="nav-number">05</span>
+                <span>Experience</span>
+            </a>
 
-                    <li>
-                        <a
-                            href="#hero"
-                            class="active">
-                            Home
-                        </a>
-                    </li>
+            <a href="#projects" class="nav-link">
+                <span class="nav-number">06</span>
+                <span>Projects</span>
+            </a>
 
-                    <li>
-                        <a href="#about">
-                            About
-                        </a>
-                    </li>
+            <a href="#certificates" class="nav-link">
+                <span class="nav-number">07</span>
+                <span>Certificates</span>
+            </a>
 
-                    <li>
-                        <a href="#skills">
-                            Skills
-                        </a>
-                    </li>
+            <a href="#contact" class="nav-link">
+                <span class="nav-number">08</span>
+                <span>Contact</span>
+            </a>
 
-                    <li>
-                        <a href="#projects">
-                            Projects
-                        </a>
-                    </li>
+        </nav>
 
-                    <li>
-                        <a href="#gallery">
-                            Gallery
-                        </a>
-                    </li>
+        <div class="header-actions">
 
-                    <li>
-                        <a href="#contact">
-                            Contact
-                        </a>
-                    </li>
+            <button
+                type="button"
+                class="theme-toggle"
+                id="theme-toggle"
+                aria-label="Toggle theme"
+                aria-pressed="false"
+            >
+                <span class="theme-icon theme-icon-sun" aria-hidden="true">
+                    ☀
+                </span>
 
-                </ul>
+                <span class="theme-icon theme-icon-moon" aria-hidden="true">
+                    ☾
+                </span>
+            </button>
 
-            </nav>
+            <a href="#contact" class="header-cta">
+                <span>Let's Talk</span>
+                <span class="cta-arrow" aria-hidden="true">↗</span>
+            </a>
 
-
-            <!-- ==========================================
-                 HEADER ACTIONS
-            =========================================== -->
-
-            <div class="header-actions">
-
-                <!-- Theme Toggle -->
-
-                <button
-                    type="button"
-                    id="themeToggle"
-                    class="icon-btn"
-                    aria-label="Toggle Theme"
-                    aria-pressed="false">
-
-                    <i
-                        class="fas fa-moon"
-                        aria-hidden="true">
-                    </i>
-
-                </button>
-
-
-                <!-- Resume -->
-
-                <a
-                    href="#resume"
-                    class="resume-btn">
-
-                    Resume
-
-                </a>
-
-
-                <!-- Mobile Menu -->
-
-                <button
-                    type="button"
-                    id="menuBtn"
-                    class="menu-btn"
-                    aria-label="Open Navigation Menu"
-                    aria-expanded="false"
-                    aria-controls="sidebar">
-
-                    <span></span>
-                    <span></span>
-                    <span></span>
-
-                </button>
-
-            </div>
+            <button
+                type="button"
+                class="menu-toggle"
+                id="menu-toggle"
+                aria-label="Open navigation menu"
+                aria-expanded="false"
+                aria-controls="main-navigation"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
 
         </div>
 
     </div>
 
-     </header>
+    <div class="header-progress" aria-hidden="true">
+        <span class="header-progress-bar" id="header-progress-bar"></span>
+    </div>
+
+</header>
