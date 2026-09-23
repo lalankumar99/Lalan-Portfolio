@@ -1,352 +1,211 @@
-/* ==========================================
-   LALAN KUMAR - ELECTRICAL ENGG. - PORTFOLIO 
-   NAVBAR CONTROLLER
-========================================== */
+/* js/navbar.js */
 
-"use strict";
+document.addEventListener("DOMContentLoaded", () => {
+    const menuToggle = document.getElementById("menu-toggle");
+    const mainNavigation = document.getElementById("main-navigation");
 
+    const sidebar = document.getElementById("site-sidebar");
+    const sidebarOverlay = document.getElementById("sidebar-overlay");
+    const sidebarClose = document.getElementById("sidebar-close");
 
-// ==========================================
-// INITIALIZE NAVBAR
-// ==========================================
-
-function initializeNavbar() {
-
-    const header = document.getElementById("header");
-    const menuBtn = document.getElementById("menuBtn");
-    const sidebar = document.getElementById("sidebar");
-
-    const links = document.querySelectorAll(
-        ".desktop-nav a"
+    const navigationLinks = document.querySelectorAll(
+        ".nav-link, .sidebar-link"
     );
 
 
-    // ==========================================
-    // HEADER CHECK
-    // ==========================================
+    const openMobileMenu = () => {
+        if (!menuToggle || !mainNavigation) return;
 
-    if (!header) {
+        mainNavigation.classList.add("is-open");
+        menuToggle.classList.add("is-active");
 
-        console.warn(
-            "[Navbar] Header not found."
+        menuToggle.setAttribute(
+            "aria-expanded",
+            "true"
         );
 
-        return;
+        document.body.classList.add("nav-open");
+    };
 
-    }
 
+    const closeMobileMenu = () => {
+        if (!menuToggle || !mainNavigation) return;
 
-    // ==========================================
-    // STICKY HEADER
-    // ==========================================
+        mainNavigation.classList.remove("is-open");
+        menuToggle.classList.remove("is-active");
 
-    function updateStickyHeader() {
-
-        if (window.scrollY > 80) {
-
-            header.classList.add("sticky");
-
-        } else {
-
-            header.classList.remove("sticky");
-
-        }
-
-    }
-
-
-    // Run once
-
-    updateStickyHeader();
-
-
-    // Run while scrolling
-
-    window.addEventListener(
-        "scroll",
-        updateStickyHeader,
-        { passive: true }
-    );
-
-
-    // ==========================================
-    // MOBILE MENU
-    // ==========================================
-
-    if (menuBtn && sidebar) {
-
-        menuBtn.addEventListener(
-            "click",
-            function () {
-
-                const isOpen =
-                    sidebar.classList.toggle("active");
-
-
-                // Accessibility
-
-                menuBtn.setAttribute(
-                    "aria-expanded",
-                    String(isOpen)
-                );
-
-                menuBtn.setAttribute(
-                    "aria-label",
-                    isOpen
-                        ? "Close Navigation Menu"
-                        : "Open Navigation Menu"
-                );
-
-                sidebar.setAttribute(
-                    "aria-hidden",
-                    String(!isOpen)
-                );
-
-            }
-        );
-
-    } else {
-
-        console.warn(
-            "[Navbar] Mobile menu elements not found."
-        );
-
-    }
-
-
-    // ==========================================
-    // DESKTOP NAVIGATION
-    // ==========================================
-
-    if (links.length > 0) {
-
-        links.forEach(function (link) {
-
-            link.addEventListener(
-                "click",
-                function () {
-
-                    // Remove active class
-                    // from every navigation link
-
-                    links.forEach(
-                        function (item) {
-
-                            item.classList.remove(
-                                "active"
-                            );
-
-                        }
-                    );
-
-
-                    // Add active class
-                    // to clicked link
-
-                    link.classList.add(
-                        "active"
-                    );
-
-
-                    // Close mobile sidebar
-                    // after navigation
-
-                    if (sidebar) {
-
-                        sidebar.classList.remove(
-                            "active"
-                        );
-
-                    }
-
-
-                    // Reset menu button
-
-                    if (menuBtn) {
-
-                        menuBtn.setAttribute(
-                            "aria-expanded",
-                            "false"
-                        );
-
-                        menuBtn.setAttribute(
-                            "aria-label",
-                            "Open Navigation Menu"
-                        );
-
-                    }
-
-
-                    // Reset sidebar accessibility
-
-                    if (sidebar) {
-
-                        sidebar.setAttribute(
-                            "aria-hidden",
-                            "true"
-                        );
-
-                    }
-
-                }
-            );
-
-        });
-
-    } else {
-
-        console.warn(
-            "[Navbar] Desktop navigation links not found."
-        );
-
-    }
-
-
-    // ==========================================
-    // CLOSE SIDEBAR WHEN CLICKING OUTSIDE
-    // ==========================================
-
-    document.addEventListener(
-        "click",
-        function (event) {
-
-            if (!sidebar || !menuBtn) {
-
-                return;
-
-            }
-
-
-            const clickedInsideSidebar =
-                sidebar.contains(event.target);
-
-            const clickedMenuButton =
-                menuBtn.contains(event.target);
-
-
-            if (
-                !clickedInsideSidebar &&
-                !clickedMenuButton
-            ) {
-
-                sidebar.classList.remove(
-                    "active"
-                );
-
-
-                menuBtn.setAttribute(
-                    "aria-expanded",
-                    "false"
-                );
-
-                menuBtn.setAttribute(
-                    "aria-label",
-                    "Open Navigation Menu"
-                );
-
-                sidebar.setAttribute(
-                    "aria-hidden",
-                    "true"
-                );
-
-            }
-
-        }
-    );
-
-
-    // ==========================================
-    // ESCAPE KEY
-    // ==========================================
-
-    document.addEventListener(
-        "keydown",
-        function (event) {
-
-            if (event.key !== "Escape") {
-
-                return;
-
-            }
-
-
-            if (!sidebar || !menuBtn) {
-
-                return;
-
-            }
-
-
-            sidebar.classList.remove(
-                "active"
-            );
-
-
-            menuBtn.setAttribute(
-                "aria-expanded",
-                "false"
-            );
-
-            menuBtn.setAttribute(
-                "aria-label",
-                "Open Navigation Menu"
-            );
-
-            sidebar.setAttribute(
-                "aria-hidden",
-                "true"
-            );
-
-        }
-    );
-
-
-    // ==========================================
-    // INITIAL ACCESSIBILITY STATE
-    // ==========================================
-
-    if (menuBtn) {
-
-        menuBtn.setAttribute(
+        menuToggle.setAttribute(
             "aria-expanded",
             "false"
         );
 
-    }
+        document.body.classList.remove("nav-open");
+    };
 
 
-    if (sidebar) {
+    const toggleMobileMenu = () => {
+        if (!mainNavigation) return;
 
-        sidebar.setAttribute(
-            "aria-hidden",
-            "true"
+        const isOpen =
+            mainNavigation.classList.contains("is-open");
+
+        if (isOpen) {
+            closeMobileMenu();
+        } else {
+            openMobileMenu();
+        }
+    };
+
+
+    const openSidebar = () => {
+        if (!sidebar) return;
+
+        sidebar.classList.add("is-open");
+
+        if (sidebarOverlay) {
+            sidebarOverlay.classList.add("is-visible");
+            sidebarOverlay.setAttribute(
+                "aria-hidden",
+                "false"
+            );
+        }
+
+        document.body.classList.add("sidebar-open");
+    };
+
+
+    const closeSidebar = () => {
+        if (!sidebar) return;
+
+        sidebar.classList.remove("is-open");
+
+        if (sidebarOverlay) {
+            sidebarOverlay.classList.remove("is-visible");
+            sidebarOverlay.setAttribute(
+                "aria-hidden",
+                "true"
+            );
+        }
+
+        document.body.classList.remove("sidebar-open");
+    };
+
+
+    const handleNavigationClick = (event) => {
+        const link = event.currentTarget;
+        const targetId = link.getAttribute("href");
+
+        if (
+            !targetId ||
+            targetId === "#" ||
+            !targetId.startsWith("#")
+        ) {
+            return;
+        }
+
+        const target = document.querySelector(targetId);
+
+        if (!target) return;
+
+        closeMobileMenu();
+        closeSidebar();
+    };
+
+
+    const handleOutsideClick = (event) => {
+        if (
+            !mainNavigation ||
+            !menuToggle ||
+            !mainNavigation.classList.contains("is-open")
+        ) {
+            return;
+        }
+
+        const clickedNavigation =
+            mainNavigation.contains(event.target);
+
+        const clickedToggle =
+            menuToggle.contains(event.target);
+
+        if (!clickedNavigation && !clickedToggle) {
+            closeMobileMenu();
+        }
+    };
+
+
+    const handleKeyboard = (event) => {
+        if (event.key !== "Escape") return;
+
+        closeMobileMenu();
+        closeSidebar();
+    };
+
+
+    const handleResize = () => {
+        if (window.innerWidth > 1000) {
+            closeMobileMenu();
+        }
+
+        if (window.innerWidth > 1200) {
+            closeSidebar();
+        }
+    };
+
+
+    if (menuToggle) {
+        menuToggle.addEventListener(
+            "click",
+            toggleMobileMenu
         );
-
     }
 
 
-    // ==========================================
-    // SUCCESS MESSAGE
-    // ==========================================
+    if (sidebarClose) {
+        sidebarClose.addEventListener(
+            "click",
+            closeSidebar
+        );
+    }
 
-    console.log(
-        "[Navbar] Initialized successfully."
+
+    if (sidebarOverlay) {
+        sidebarOverlay.addEventListener(
+            "click",
+            closeSidebar
+        );
+    }
+
+
+    navigationLinks.forEach((link) => {
+        link.addEventListener(
+            "click",
+            handleNavigationClick
+        );
+    });
+
+
+    document.addEventListener(
+        "click",
+        handleOutsideClick
     );
 
-}
+    document.addEventListener(
+        "keydown",
+        handleKeyboard
+    );
+
+    window.addEventListener(
+        "resize",
+        handleResize,
+        { passive: true }
+    );
 
 
-// ==========================================
-// WAIT FOR DYNAMIC COMPONENTS
-// ==========================================
-//
-// app.js loads header.html and sidebar.html
-// dynamically. Therefore navbar.js must wait
-// until componentsLoaded is fired.
-// ==========================================
-
-document.addEventListener(
-    "componentsLoaded",
-    initializeNavbar,
-    { once: true }
-);
+    window.PortfolioNavigation = {
+        openMobileMenu,
+        closeMobileMenu,
+        openSidebar,
+        closeSidebar,
+        toggleMobileMenu
+    };
+});
