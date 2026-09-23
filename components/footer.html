@@ -1,101 +1,135 @@
-<!-- =========================================
-     FOOTER SECTION
-========================================= -->
+<!-- components/footer.html -->
 
-<footer id="footer" class="footer">
+<footer class="site-footer" id="footer">
 
-    <div class="container">
+    <div class="footer-main">
 
-        <div class="footer-grid">
+        <div class="container">
 
-            <!-- Brand -->
+            <div class="footer-grid">
 
-            <div class="footer-brand">
+                <div class="footer-brand">
 
-                <img
-                    src="assets/images/logo.png"
-                    alt="Lalan Kumar Logo"
-                    class="footer-logo">
+                    <a href="#home" class="footer-logo" aria-label="Lalan Kumar Home">
 
-                <h2>Lalan Kumar</h2>
+                        <span class="footer-logo-mark">
+                            LK
+                        </span>
 
-                <p>
-                    Electrical Engineering Student, Web Developer,
-                    AI Creator and Technology Enthusiast dedicated to
-                    building modern digital experiences.
-                </p>
+                        <span class="footer-logo-content">
+                            <strong>LALAN KUMAR</strong>
+                            <small>Electrical Engineering</small>
+                        </span>
 
-            </div>
+                    </a>
 
-            <!-- Quick Links -->
+                    <p class="footer-description">
+                        Diploma Engineering student passionate about
+                        electrical engineering, technology, web development
+                        and building practical digital projects.
+                    </p>
 
-            <div class="footer-links">
+                    <div class="footer-status">
 
-                <h3>Quick Links</h3>
+                        <span class="footer-status-dot">
+                            <span></span>
+                        </span>
 
-                <ul>
+                        <span>
+                            Learning · Building · Growing
+                        </span>
 
-                    <li><a href="#hero">Home</a></li>
+                    </div>
 
-                    <li><a href="#about">About</a></li>
+                </div>
 
-                    <li><a href="#skills">Skills</a></li>
 
-                    <li><a href="#projects">Projects</a></li>
+                <div class="footer-column">
 
-                    <li><a href="#gallery">Gallery</a></li>
+                    <span class="footer-column-title">
+                        EXPLORE
+                    </span>
 
-                    <li><a href="#contact">Contact</a></li>
+                    <nav class="footer-links" aria-label="Footer Navigation">
 
-                </ul>
+                        <a href="#home">
+                            <span>01</span>
+                            Home
+                        </a>
 
-            </div>
+                        <a href="#about">
+                            <span>02</span>
+                            About
+                        </a>
 
-            <!-- Resources -->
+                        <a href="#education">
+                            <span>03</span>
+                            Education
+                        </a>
 
-            <div class="footer-links">
+                        <a href="#skills">
+                            <span>04</span>
+                            Skills
+                        </a>
 
-                <h3>Resources</h3>
+                        <a href="#projects">
+                            <span>05</span>
+                            Projects
+                        </a>
 
-                <ul>
+                    </nav>
 
-                    <li><a href="#resume">Resume</a></li>
+                </div>
 
-                    <li><a href="#certificates">Certificates</a></li>
 
-                    <li><a href="#blog">Blog</a></li>
+                <div class="footer-column">
 
-                    <li><a href="#">Privacy Policy</a></li>
+                    <span class="footer-column-title">
+                        CONNECT
+                    </span>
 
-                    <li><a href="#">Terms & Conditions</a></li>
+                    <nav class="footer-links" aria-label="Social Links">
 
-                </ul>
+                        <a href="#" target="_blank" rel="noopener noreferrer">
+                            <span>↗</span>
+                            LinkedIn
+                        </a>
 
-            </div>
+                        <a href="#" target="_blank" rel="noopener noreferrer">
+                            <span>↗</span>
+                            GitHub
+                        </a>
 
-            <!-- Contact -->
+                        <a href="mailto:your.email@example.com">
+                            <span>↗</span>
+                            Email
+                        </a>
 
-            <div class="footer-contact">
+                        <a href="#contact">
+                            <span>↗</span>
+                            Contact
+                        </a>
 
-                <h3>Contact</h3>
+                    </nav>
 
-                <p><i class="fas fa-envelope"></i> your@email.com</p>
+                </div>
 
-                <p><i class="fas fa-phone"></i> +91 XXXXX XXXXX</p>
 
-                <p><i class="fas fa-location-dot"></i> India</p>
+                <div class="footer-column footer-cta-column">
 
-                <div class="footer-social">
+                    <span class="footer-column-title">
+                        LET'S BUILD
+                    </span>
 
-                    <a href="#"><i class="fab fa-github"></i></a>
+                    <h3>
+                        Have an idea?
+                        <span class="gradient-text">Let's talk.</span>
+                    </h3>
 
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
-
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-
-                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#contact" class="footer-contact-button">
+                        <span>Start a Conversation</span>
+                        <span aria-hidden="true">↗</span>
+                    </a>
 
                 </div>
 
@@ -103,21 +137,38 @@
 
         </div>
 
-        <!-- Bottom -->
+    </div>
 
-        <div class="footer-bottom">
 
-            <p>
+    <div class="footer-bottom">
 
-                © 2026 Lalan Kumar. All Rights Reserved.
+        <div class="container">
 
-            </p>
+            <div class="footer-bottom-inner">
 
-            <button id="backToTop" class="back-top">
+                <p class="footer-copyright">
+                    © <span id="footer-year">2026</span>
+                    Lalan Kumar. All rights reserved.
+                </p>
 
-                <i class="fas fa-arrow-up"></i>
+                <div class="footer-bottom-center">
 
-            </button>
+                    <span class="footer-line"></span>
+
+                    <span class="footer-symbol">
+                        LK
+                    </span>
+
+                    <span class="footer-line"></span>
+
+                </div>
+
+                <a href="#home" class="footer-back-top">
+                    <span>Back to top</span>
+                    <span aria-hidden="true">↑</span>
+                </a>
+
+            </div>
 
         </div>
 
