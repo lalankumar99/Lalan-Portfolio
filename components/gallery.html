@@ -1,103 +1,374 @@
-<!-- =========================================
-     GALLERY SECTION
-========================================= -->
+<!-- components/gallery.html -->
 
-<section id="gallery" class="gallery section">
+<section class="gallery-section section" id="gallery" aria-labelledby="gallery-title">
 
     <div class="container">
 
-        <!-- Section Title -->
+        <div class="section-header gallery-section-header">
 
-        <div class="section-title">
+            <span class="section-label">
+                Gallery
+            </span>
 
-            <span>GALLERY</span>
-
-            <h2>Photo Gallery</h2>
+            <h2 id="gallery-title">
+                Visual
+                <span class="gradient-text">Journey.</span>
+            </h2>
 
             <p>
-                A collection of my photos, projects,
-                events and memorable moments.
+                A collection of moments, projects, experiments and
+                creative work from my engineering and technology journey.
             </p>
 
         </div>
 
-        <!-- Gallery Filter -->
 
-        <div class="gallery-filter">
+        <div class="gallery-toolbar">
 
-            <button class="gallery-btn active">All</button>
+            <div class="gallery-intro">
+                <span class="gallery-intro-line"></span>
 
-            <button class="gallery-btn">Projects</button>
+                <span>
+                    PROJECTS · LEARNING · CREATIVE WORK
+                </span>
+            </div>
 
-            <button class="gallery-btn">Certificates</button>
-
-            <button class="gallery-btn">Events</button>
-
-            <button class="gallery-btn">Personal</button>
+            <div class="gallery-count">
+                <strong>06</strong>
+                <span>Selected Works</span>
+            </div>
 
         </div>
 
-        <!-- Gallery Grid -->
 
         <div class="gallery-grid">
 
-            <!-- Image 1 -->
 
-            <div class="gallery-item glass">
+            <article class="gallery-card gallery-card-large">
 
-                <a href="assets/images/gallery/gallery-1.jpg">
-
-                    <img
-                        src="assets/images/gallery/gallery-1.jpg"
-                        alt="Gallery Image">
-
-                </a>
-
-            </div>
-
-            <!-- Image 2 -->
-
-            <div class="gallery-item glass">
-
-                <a href="assets/images/gallery/gallery-2.jpg">
+                <div class="gallery-image">
 
                     <img
-                        src="assets/images/gallery/gallery-2.jpg"
-                        alt="Gallery Image">
+                        src="assets/images/gallery/project-01.jpg"
+                        alt="Electrical engineering project"
+                        loading="lazy"
+                    >
 
-                </a>
+                    <div class="gallery-image-overlay"></div>
 
-            </div>
+                    <span class="gallery-category">
+                        Engineering
+                    </span>
 
-            <!-- Image 3 -->
+                    <span class="gallery-number">
+                        01
+                    </span>
 
-            <div class="gallery-item glass">
+                    <a
+                        href="#projects"
+                        class="gallery-view"
+                        aria-label="View electrical engineering project"
+                    >
+                        <span>↗</span>
+                    </a>
 
-                <a href="assets/images/gallery/gallery-3.jpg">
+                </div>
+
+                <div class="gallery-card-content">
+
+                    <div>
+                        <span class="gallery-card-label">
+                            TECHNICAL PROJECT
+                        </span>
+
+                        <h3>
+                            Electrical Engineering
+                        </h3>
+                    </div>
+
+                    <span class="gallery-card-arrow">
+                        ↗
+                    </span>
+
+                </div>
+
+            </article>
+
+
+            <article class="gallery-card">
+
+                <div class="gallery-image">
 
                     <img
-                        src="assets/images/gallery/gallery-3.jpg"
-                        alt="Gallery Image">
+                        src="assets/images/gallery/project-02.jpg"
+                        alt="Web development project"
+                        loading="lazy"
+                    >
 
-                </a>
+                    <div class="gallery-image-overlay"></div>
 
-            </div>
+                    <span class="gallery-category">
+                        Development
+                    </span>
 
-            <!-- Add More Images -->
+                    <span class="gallery-number">
+                        02
+                    </span>
+
+                    <a
+                        href="#projects"
+                        class="gallery-view"
+                        aria-label="View web development project"
+                    >
+                        <span>↗</span>
+                    </a>
+
+                </div>
+
+                <div class="gallery-card-content">
+
+                    <div>
+                        <span class="gallery-card-label">
+                            DIGITAL PROJECT
+                        </span>
+
+                        <h3>
+                            Web Development
+                        </h3>
+                    </div>
+
+                    <span class="gallery-card-arrow">
+                        ↗
+                    </span>
+
+                </div>
+
+            </article>
+
+
+            <article class="gallery-card">
+
+                <div class="gallery-image">
+
+                    <img
+                        src="assets/images/gallery/project-03.jpg"
+                        alt="Polytechnic Hub project"
+                        loading="lazy"
+                    >
+
+                    <div class="gallery-image-overlay"></div>
+
+                    <span class="gallery-category">
+                        Education
+                    </span>
+
+                    <span class="gallery-number">
+                        03
+                    </span>
+
+                    <a
+                        href="#projects"
+                        class="gallery-view"
+                        aria-label="View Polytechnic Hub project"
+                    >
+                        <span>↗</span>
+                    </a>
+
+                </div>
+
+                <div class="gallery-card-content">
+
+                    <div>
+                        <span class="gallery-card-label">
+                            PLATFORM
+                        </span>
+
+                        <h3>
+                            Polytechnic Hub
+                        </h3>
+                    </div>
+
+                    <span class="gallery-card-arrow">
+                        ↗
+                    </span>
+
+                </div>
+
+            </article>
+
+
+            <article class="gallery-card">
+
+                <div class="gallery-image">
+
+                    <img
+                        src="assets/images/gallery/project-04.jpg"
+                        alt="Digital design project"
+                        loading="lazy"
+                    >
+
+                    <div class="gallery-image-overlay"></div>
+
+                    <span class="gallery-category">
+                        Design
+                    </span>
+
+                    <span class="gallery-number">
+                        04
+                    </span>
+
+                    <a
+                        href="#projects"
+                        class="gallery-view"
+                        aria-label="View digital design project"
+                    >
+                        <span>↗</span>
+                    </a>
+
+                </div>
+
+                <div class="gallery-card-content">
+
+                    <div>
+                        <span class="gallery-card-label">
+                            CREATIVE WORK
+                        </span>
+
+                        <h3>
+                            Digital Design
+                        </h3>
+                    </div>
+
+                    <span class="gallery-card-arrow">
+                        ↗
+                    </span>
+
+                </div>
+
+            </article>
+
+
+            <article class="gallery-card gallery-card-wide">
+
+                <div class="gallery-image">
+
+                    <img
+                        src="assets/images/gallery/project-05.jpg"
+                        alt="Technology learning and experimentation"
+                        loading="lazy"
+                    >
+
+                    <div class="gallery-image-overlay"></div>
+
+                    <span class="gallery-category">
+                        Technology
+                    </span>
+
+                    <span class="gallery-number">
+                        05
+                    </span>
+
+                    <a
+                        href="#skills"
+                        class="gallery-view"
+                        aria-label="View technology learning work"
+                    >
+                        <span>↗</span>
+                    </a>
+
+                </div>
+
+                <div class="gallery-card-content">
+
+                    <div>
+                        <span class="gallery-card-label">
+                            EXPLORATION
+                        </span>
+
+                        <h3>
+                            Technology &amp; Learning
+                        </h3>
+                    </div>
+
+                    <span class="gallery-card-arrow">
+                        ↗
+                    </span>
+
+                </div>
+
+            </article>
+
+
+            <article class="gallery-card">
+
+                <div class="gallery-image">
+
+                    <img
+                        src="assets/images/gallery/project-06.jpg"
+                        alt="Creative technology project"
+                        loading="lazy"
+                    >
+
+                    <div class="gallery-image-overlay"></div>
+
+                    <span class="gallery-category">
+                        Innovation
+                    </span>
+
+                    <span class="gallery-number">
+                        06
+                    </span>
+
+                    <a
+                        href="#contact"
+                        class="gallery-view"
+                        aria-label="Discuss a creative project"
+                    >
+                        <span>↗</span>
+                    </a>
+
+                </div>
+
+                <div class="gallery-card-content">
+
+                    <div>
+                        <span class="gallery-card-label">
+                            CREATIVE EXPERIMENT
+                        </span>
+
+                        <h3>
+                            Ideas &amp; Innovation
+                        </h3>
+                    </div>
+
+                    <span class="gallery-card-arrow">
+                        ↗
+                    </span>
+
+                </div>
+
+            </article>
 
         </div>
 
-        <!-- View All -->
 
-        <div class="gallery-footer">
+        <div class="gallery-bottom">
 
-            <a
-                href="#"
-                class="btn-primary">
+            <div class="gallery-bottom-line"></div>
 
-                View Full Gallery
+            <div class="gallery-bottom-content">
 
-            </a>
+                <span class="gallery-bottom-icon">
+                    +
+                </span>
+
+                <p>
+                    More projects and visual stories coming soon.
+                </p>
+
+            </div>
+
+            <div class="gallery-bottom-line"></div>
 
         </div>
 
