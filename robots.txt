@@ -18,4 +18,4 @@ Allow: /
 # Crawl-delay: 5
 
 # XML Sitemap
-Sitemap: https://lalankumar99.github.io/Lalan-Portfolio/sitemap.xml
+Sitemap: https://lalanportfolio.vercel.app/sitemap.xml
