@@ -1109,3 +1109,71 @@
             none;
     }
 }
+
+
+/* ========================================
+   EDUCATION SECTION - IMAGE STYLING
+======================================== */
+
+/* Diploma image */
+.education-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    border-radius: inherit;
+}
+
+/* Education timeline images */
+.education-card-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    border-radius: inherit;
+}
+
+/* Diploma image container */
+.education-icon {
+    overflow: hidden;
+    padding: 5px;
+}
+
+/* Timeline image containers */
+.education-card-icon {
+    overflow: hidden;
+    padding: 5px;
+}
+
+/* Matriculation image */
+.education-card-icon-alt img {
+    object-fit: contain;
+}
+
+/* Continuous development image */
+.education-card-icon-goal img {
+    object-fit: contain;
+}
+
+/* Mobile responsive images */
+@media (max-width: 650px) {
+    .education-icon {
+        width: 54px;
+        height: 54px;
+        flex-shrink: 0;
+    }
+
+    .education-card-icon {
+        width: 44px;
+        height: 44px;
+        flex-shrink: 0;
+    }
+}
+
+/* Small mobile devices */
+@media (max-width: 450px) {
+    .education-card-icon {
+        width: 42px;
+        height: 42px;
+    }
+}
