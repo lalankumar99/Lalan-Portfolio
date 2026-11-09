@@ -1,7 +1,9 @@
+
 /* js/scroll.js */
 
 window.addEventListener("portfolioComponentsLoaded", () => {
     const header = document.getElementById("site-header");
+
     const progressBar = document.getElementById(
         "header-progress-bar"
     );
@@ -119,26 +121,25 @@ window.addEventListener("portfolioComponentsLoaded", () => {
             return;
         }
 
-        const observer =
-            new IntersectionObserver(
-                (entries, observerInstance) => {
-                    entries.forEach((entry) => {
-                        if (!entry.isIntersecting) return;
+        const observer = new IntersectionObserver(
+            (entries, observerInstance) => {
+                entries.forEach((entry) => {
+                    if (!entry.isIntersecting) return;
 
-                        entry.target.classList.add(
-                            "is-visible"
-                        );
+                    entry.target.classList.add(
+                        "is-visible"
+                    );
 
-                        observerInstance.unobserve(
-                            entry.target
-                        );
-                    });
-                },
-                {
-                    threshold: 0.12,
-                    rootMargin: "0px 0px -50px 0px"
-                }
-            );
+                    observerInstance.unobserve(
+                        entry.target
+                    );
+                });
+            },
+            {
+                threshold: 0.12,
+                rootMargin: "0px 0px -50px 0px"
+            }
+        );
 
         revealElements.forEach((element) => {
             observer.observe(element);
@@ -150,10 +151,9 @@ window.addEventListener("portfolioComponentsLoaded", () => {
        Back To Top
     ---------------------------------------- */
 
+    // Fixed: HTML uses id="backToTop"
     const backToTop =
-        document.querySelector(
-            ".back-to-top"
-        );
+        document.getElementById("backToTop");
 
     const updateBackToTop = () => {
         if (!backToTop) return;
@@ -163,7 +163,6 @@ window.addEventListener("portfolioComponentsLoaded", () => {
             window.scrollY > 500
         );
     };
-
 
     if (backToTop) {
         backToTop.addEventListener(
