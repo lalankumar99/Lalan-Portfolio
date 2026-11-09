@@ -1,6 +1,6 @@
 /* js/navbar.js */
 
-document.addEventListener("DOMContentLoaded", () => {
+window.addEventListener("portfolioComponentsLoaded", () => {
     const menuToggle = document.getElementById("menu-toggle");
     const mainNavigation = document.getElementById("main-navigation");
 
