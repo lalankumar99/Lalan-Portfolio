@@ -1,6 +1,4 @@
-/* js/theme.js */
-
-document.addEventListener("DOMContentLoaded", () => {
+window.addEventListener("portfolioComponentsLoaded", () => {
     const themeToggle = document.getElementById("theme-toggle");
 
     if (!themeToggle) return;
