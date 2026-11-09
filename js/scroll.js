@@ -1,6 +1,6 @@
 /* js/scroll.js */
 
-document.addEventListener("DOMContentLoaded", () => {
+window.addEventListener("portfolioComponentsLoaded", () => {
     const header = document.getElementById("site-header");
     const progressBar = document.getElementById(
         "header-progress-bar"
