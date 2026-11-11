@@ -1,103 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 
 <head>
+    <!-- ==========================================
+         META TAGS & SEO
+    ========================================== -->
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
- <title>Lalan Kumar | Electrical Engineering Student Portfolio</title>
-
-    <meta
-    name="description"
-    content="Explore Lalan Kumar's portfolio featuring Diploma Electrical Engineering, technical skills, engineering projects, web development, education and achievements in Bihar, India."
->
-
-    <meta
-        name="keywords"
-        content="Lalan Kumar, Lalan Kumar Electrical, Lalan Kumar Portfolio, Electrical Engineering, Diploma Electrical Engineering, Web Developer, AI, Technology, Polytechnic Bihar"
-    >
-
     <meta name="author" content="Lalan Kumar">
-
-    <meta
-        name="robots"
-        content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
-    >
-
-    <link rel="canonical" href="https://lalanportfolio.vercel.app/">
-
     <meta name="theme-color" content="#0B1120">
     <meta name="color-scheme" content="dark light">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 
-    <meta
-    property="og:title"
-    content="Lalan Kumar | Electrical Engineering Student Portfolio"
->
+    <title>Lalan Kumar | Electrical Engineering Student Portfolio</title>
+    <meta name="description" content="Explore Lalan Kumar's portfolio featuring Diploma Electrical Engineering, technical skills, engineering projects, web development, education and achievements in Bihar, India.">
+    <meta name="keywords" content="Lalan Kumar, Lalan Kumar Electrical, Lalan Kumar Portfolio, Electrical Engineering, Diploma Electrical Engineering, Web Developer, AI, Technology, Polytechnic Bihar">
+    
+    <link rel="canonical" href="https://lalanportfolio.vercel.app/">
 
-    <meta
-        property="og:description"
-        content="Official portfolio of Lalan Kumar, a Diploma Electrical Engineering student interested in electrical engineering, technology, web development and practical projects."
-    >
-
+    <!-- ==========================================
+         OPEN GRAPH / FACEBOOK
+    ========================================== -->
     <meta property="og:type" content="website">
-
-    <meta
-        property="og:url"
-        content="https://lalanportfolio.vercel.app/"
-    >
-
-    <meta
-        property="og:image"
-        content="https://lalanportfolio.vercel.app/assets/images/preview.jpg"
-    >
-
-    <meta
-        property="og:image:alt"
-        content="Lalan Kumar Electrical Engineering Portfolio"
-    >
-
+    <meta property="og:url" content="https://lalanportfolio.vercel.app/">
+    <meta property="og:title" content="Lalan Kumar | Electrical Engineering Student Portfolio">
+    <meta property="og:description" content="Official portfolio of Lalan Kumar, a Diploma Electrical Engineering student interested in electrical engineering, technology, web development and practical projects.">
+    <meta property="og:image" content="https://lalanportfolio.vercel.app/assets/images/preview.jpg">
+    <meta property="og:image:alt" content="Lalan Kumar Electrical Engineering Portfolio">
     <meta property="og:site_name" content="Lalan Kumar Portfolio">
 
-    <meta
-        name="twitter:card"
-        content="summary_large_image"
-    >
+    <!-- ==========================================
+         TWITTER CARDS
+    ========================================== -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Lalan Kumar | Electrical Engineering Student Portfolio">
+    <meta name="twitter:description" content="Explore Lalan Kumar's education, skills, projects and technology journey.">
+    <meta name="twitter:image" content="https://lalanportfolio.vercel.app/assets/images/preview.jpg">
 
-    <meta
-    name="twitter:title"
-    content="Lalan Kumar | Electrical Engineering Student Portfolio"
->
-
-    <meta
-        name="twitter:description"
-        content="Explore Lalan Kumar's education, skills, projects and technology journey."
-    >
-
-    <meta
-        name="twitter:image"
-        content="https://lalanportfolio.vercel.app/assets/images/preview.jpg"
-    >
-
+    <!-- ==========================================
+         FAVICON & PWA MANIFEST
+    ========================================== -->
     <link rel="manifest" href="manifest.json">
-
     <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico">
     <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
     <link rel="apple-touch-icon" href="assets/icons/icon-192.png">
+
+    <!-- ==========================================
+         FONTS & ICONS
+    ========================================== -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
-        rel="stylesheet"
-    >
-
-    <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-    >
-
+    <!-- ==========================================
+         STYLESHEETS
+    ========================================== -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/hero.css">
@@ -115,6 +74,9 @@
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/sidebar.css">
 
+    <!-- ==========================================
+         JSON-LD SCHEMA (STRUCTURED DATA)
+    ========================================== -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -138,69 +100,82 @@
 
 <body>
 
-    <div id="loader"></div>
+    <!-- ==========================================
+         NOSCRIPT FALLBACK
+    ========================================== -->
+    <noscript>
+        <div style="background-color: #f8d7da; color: #721c24; padding: 20px; text-align: center; font-family: sans-serif;">
+            <strong>Warning:</strong> JavaScript is disabled in your browser. Please enable JavaScript for the best experience on this portfolio.
+        </div>
+    </noscript>
 
-    <div id="scroll-progress"></div>
+    <!-- ==========================================
+         GLOBAL UI ELEMENTS
+    ========================================== -->
+    <div id="loader" class="preloader"></div>
+    <div id="scroll-progress" aria-hidden="true"></div>
+    <div id="cursor" aria-hidden="true"></div>
+    <canvas id="particles" aria-hidden="true"></canvas>
 
-    <div id="cursor"></div>
+    <!-- ==========================================
+         HEADER & SIDEBAR
+    ========================================== -->
+    <header id="header" class="site-header"></header>
+    <aside id="sidebar" class="site-sidebar" aria-label="Sidebar Navigation"></aside>
 
-    <canvas id="particles"></canvas>
-
-    <div id="header"></div>
-
-    <div id="sidebar"></div>
-
+    <!-- ==========================================
+         MAIN CONTENT AREA
+    ========================================== -->
     <main id="main-content">
-        <div id="hero"></div>
-        <div id="about"></div>
-        <div id="education"></div>
-        <div id="skills"></div>
-        <div id="experience"></div>
-        <div id="projects"></div>
-        <div id="gallery"></div>
-        <div id="certificates"></div>
-        <div id="resume"></div>
-        <div id="blog"></div>
-        <div id="dashboard"></div>
-        <div id="contact"></div>
+        <!-- Components will be dynamically injected here by JS -->
+        <section id="hero" aria-label="Introduction"></section>
+        <section id="about" aria-label="About Me"></section>
+        <section id="education" aria-label="Education Background"></section>
+        <section id="skills" aria-label="Technical Skills"></section>
+        <section id="experience" aria-label="Work Experience"></section>
+        <section id="projects" aria-label="My Projects"></section>
+        <section id="gallery" aria-label="Photo Gallery"></section>
+        <section id="certificates" aria-label="Certifications"></section>
+        <section id="resume" aria-label="Resume & CV"></section>
+        <section id="blog" aria-label="Latest Blog Posts"></section>
+        <section id="dashboard" aria-label="Personal Dashboard"></section>
+        <section id="contact" aria-label="Contact Information"></section>
     </main>
 
-    <div id="footer"></div>
+    <!-- ==========================================
+         FOOTER
+    ========================================== -->
+    <footer id="footer" class="site-footer"></footer>
 
-    <button
-        id="backToTop"
-        class="back-top"
-        type="button"
-        aria-label="Back to Top"
-    >
-        <i class="fas fa-arrow-up"></i>
+    <!-- ==========================================
+         BACK TO TOP BUTTON
+    ========================================== -->
+    <button id="backToTop" class="back-top" type="button" aria-label="Scroll back to top">
+        <i class="fas fa-arrow-up" aria-hidden="true"></i>
     </button>
 
+    <!-- ==========================================
+         SCRIPTS
+    ========================================== -->
     <script src="js/app.js" defer></script>
     <script src="js/navbar.js" defer></script>
     <script src="js/theme.js" defer></script>
     <script src="js/scroll.js" defer></script>
 
+    <!-- Service Worker Registration for PWA -->
     <script>
         if ("serviceWorker" in navigator) {
             window.addEventListener("load", () => {
                 navigator.serviceWorker.register("./sw.js")
                     .then(registration => {
-                        console.log(
-                            "Service Worker registered:",
-                            registration.scope
-                        );
+                        console.log("Service Worker registered successfully:", registration.scope);
                     })
                     .catch(error => {
-                        console.error(
-                            "Service Worker registration failed:",
-                            error
-                        );
+                        console.error("Service Worker registration failed:", error);
                     });
             });
         }
     </script>
 
 </body>
-
 </html>
