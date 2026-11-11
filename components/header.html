@@ -1,108 +1,161 @@
-<!-- components/header.html -->
+<!-- components/header.html - Premium Upgraded Version -->
 
-<header class="site-header" id="site-header">
+<!-- 
+  ======================================================
+  SITE HEADER (GLASSMORPHISM & STICKY NAVIGATION)
+  ======================================================
+-->
+<header class="site-header glass-header" id="site-header">
+    
+    <!-- Optional: Background glow effect for the header -->
+    <div class="header-glow-bg" aria-hidden="true"></div>
 
     <div class="header-container">
 
-        <a href="#home" class="brand" aria-label="Lalan Kumar Home">
-
+        <!-- ==========================================
+             BRAND / LOGO SECTION
+        ========================================== -->
+        <a href="#hero" class="brand magnetic-element" aria-label="Lalan Kumar Home">
+            
+            <!-- Animated Logo Mark -->
             <span class="brand-mark">
                 <span class="brand-mark-inner">LK</span>
+                <span class="brand-mark-ring" aria-hidden="true"></span>
             </span>
 
+            <!-- Brand Text with Gradient -->
             <span class="brand-content">
-                <span class="brand-name">LALAN KUMAR</span>
+                <span class="brand-name gradient-text-animated">LALAN KUMAR</span>
                 <span class="brand-tagline">Electrical Engineering</span>
             </span>
-
         </a>
 
+        <!-- ==========================================
+             DESKTOP MAIN NAVIGATION
+        ========================================== -->
         <nav class="main-navigation" id="main-navigation" aria-label="Main Navigation">
-
-            <a href="#home" class="nav-link active">
+            
+            <a href="#hero" class="nav-link active" data-cursor="hover">
                 <span class="nav-number">01</span>
-                <span>Home</span>
+                <span class="nav-text">Home</span>
+                <span class="nav-indicator" aria-hidden="true"></span>
             </a>
 
-            <a href="#about" class="nav-link">
+            <a href="#about" class="nav-link" data-cursor="hover">
                 <span class="nav-number">02</span>
-                <span>About</span>
+                <span class="nav-text">About</span>
+                <span class="nav-indicator" aria-hidden="true"></span>
             </a>
 
-            <a href="#education" class="nav-link">
+            <a href="#education" class="nav-link" data-cursor="hover">
                 <span class="nav-number">03</span>
-                <span>Education</span>
+                <span class="nav-text">Education</span>
+                <span class="nav-indicator" aria-hidden="true"></span>
             </a>
 
-            <a href="#skills" class="nav-link">
+            <a href="#skills" class="nav-link" data-cursor="hover">
                 <span class="nav-number">04</span>
-                <span>Skills</span>
+                <span class="nav-text">Skills</span>
+                <span class="nav-indicator" aria-hidden="true"></span>
             </a>
 
-            <a href="#experience" class="nav-link">
+            <a href="#experience" class="nav-link" data-cursor="hover">
                 <span class="nav-number">05</span>
-                <span>Experience</span>
+                <span class="nav-text">Experience</span>
+                <span class="nav-indicator" aria-hidden="true"></span>
             </a>
 
-            <a href="#projects" class="nav-link">
+            <a href="#projects" class="nav-link" data-cursor="hover">
                 <span class="nav-number">06</span>
-                <span>Projects</span>
+                <span class="nav-text">Projects</span>
+                <span class="nav-indicator" aria-hidden="true"></span>
             </a>
 
-            <a href="#certificates" class="nav-link">
+            <a href="#certificates" class="nav-link" data-cursor="hover">
                 <span class="nav-number">07</span>
-                <span>Certificates</span>
+                <span class="nav-text">Certificates</span>
+                <span class="nav-indicator" aria-hidden="true"></span>
             </a>
 
-            <a href="#contact" class="nav-link">
+            <a href="#contact" class="nav-link" data-cursor="hover">
                 <span class="nav-number">08</span>
-                <span>Contact</span>
+                <span class="nav-text">Contact</span>
+                <span class="nav-indicator" aria-hidden="true"></span>
             </a>
 
         </nav>
 
+        <!-- ==========================================
+             HEADER ACTIONS (THEME, CTA, MOBILE MENU)
+        ========================================== -->
         <div class="header-actions">
 
-            <button
-                type="button"
-                class="theme-toggle"
-                id="theme-toggle"
-                aria-label="Toggle theme"
+            <!-- Premium Theme Toggle Button with SVG Icons -->
+            <button 
+                type="button" 
+                class="theme-toggle magnetic-element" 
+                id="theme-toggle" 
+                aria-label="Toggle dark and light mode" 
                 aria-pressed="false"
+                title="Switch Theme"
             >
-                <span class="theme-icon theme-icon-sun" aria-hidden="true">
-                    ☀
-                </span>
+                <div class="theme-icon-wrapper">
+                    <!-- Sun Icon (Light Mode) -->
+                    <svg class="theme-icon theme-icon-sun" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
 
-                <span class="theme-icon theme-icon-moon" aria-hidden="true">
-                    ☾
-                </span>
+                    <!-- Moon Icon (Dark Mode) -->
+                    <svg class="theme-icon theme-icon-moon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </div>
             </button>
 
-            <a href="#contact" class="header-cta">
-                <span>Let's Talk</span>
-                <span class="cta-arrow" aria-hidden="true">↗</span>
+            <!-- Premium Call To Action (CTA) Button -->
+            <a href="#contact" class="header-cta btn-primary magnetic-element" data-cursor="hover">
+                <span class="cta-text">Let's Talk</span>
+                <span class="cta-icon" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </span>
             </a>
 
-            <button
-                type="button"
-                class="menu-toggle"
-                id="menu-toggle"
-                aria-label="Open navigation menu"
-                aria-expanded="false"
+            <!-- Modern Animated Hamburger Menu for Mobile -->
+            <button 
+                type="button" 
+                class="menu-toggle" 
+                id="menu-toggle" 
+                aria-label="Open navigation menu" 
+                aria-expanded="false" 
                 aria-controls="main-navigation"
             >
-                <span></span>
-                <span></span>
-                <span></span>
+                <div class="hamburger-box">
+                    <span class="hamburger-inner top"></span>
+                    <span class="hamburger-inner middle"></span>
+                    <span class="hamburger-inner bottom"></span>
+                </div>
             </button>
 
         </div>
 
     </div>
 
+    <!-- ==========================================
+         TOP SCROLL PROGRESS INDICATOR
+    ========================================== -->
     <div class="header-progress" aria-hidden="true">
-        <span class="header-progress-bar" id="header-progress-bar"></span>
+        <span class="header-progress-bar glow-progress" id="header-progress-bar"></span>
     </div>
 
 </header>
